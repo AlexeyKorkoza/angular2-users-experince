@@ -14,8 +14,6 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 
-app.use("/", require("./routers"));
-
 app.listen(port, function () {
   console.log("server start in port 3000");
 });
