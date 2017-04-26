@@ -1,9 +1,12 @@
 # debug
 npm-debug-log
 debug.log
+src/npm-debug-log
+src/debug.log
 
 # dependencies
 node_modules/
+src/node_modules/
 
 # IDEs and editors
 .idea/

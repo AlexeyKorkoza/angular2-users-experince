@@ -4,10 +4,6 @@
   "description": "test application",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
-    "lite": "lite-server",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,26 +21,9 @@
   },
   "homepage": "https://github.com/AlexeyKorkoza/angular2-users-experince#readme",
   "dependencies": {
-    "@angular/common": "^4.0.3",
-    "@angular/compiler": "^4.0.3",
-    "@angular/core": "^4.0.3",
-    "@angular/forms": "^4.0.3",
-    "@angular/http": "^4.0.3",
-    "@angular/platform-browser": "^4.0.3",
-    "@angular/platform-browser-dynamic": "^4.0.3",
-    "@angular/router": "^4.0.3",
-    "@angular/upgrade": "^4.0.3",
-    "core-js": "^2.4.1",
-    "rxjs": "^5.3.0",
-    "systemjs": "^0.20.12",
-    "zone.js": "^0.8.9"
-  },
-  "devDependencies": {
-    "@types/core-js": "^0.9.41",
-    "@types/jasmine": "^2.5.47",
-    "@types/node": "^7.0.13",
-    "concurrently": "^3.4.0",
-    "lite-server": "^2.3.0",
-    "typescript": "^2.2.2"
+    "body-parser": "^1.17.1",
+    "ejs": "^2.5.6",
+    "express": "^4.15.2",
+    "nodemon": "^1.11.0"
   }
 }
