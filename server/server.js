@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var ejs = require('ejs');
 var app = express();
 
-var port = 3000;
+var port = 8000;
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
@@ -15,5 +15,5 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.listen(port, function () {
-  console.log("server start in port 3000");
+  console.log("server start in port " + port);
 });
