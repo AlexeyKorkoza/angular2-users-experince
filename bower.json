@@ -1,0 +1,21 @@
+{
+  "name": "angular2-users-experince",
+  "description": "test application",
+  "main": "index.js",
+  "authors": [
+    "Alexey Korkoza"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "angular2",
+    "nodejs"
+  ],
+  "homepage": "https://github.com/AlexeyKorkoza/angular2-users-experince",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
