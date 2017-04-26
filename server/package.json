@@ -19,5 +19,11 @@
   "bugs": {
     "url": "https://github.com/AlexeyKorkoza/angular2-users-experince/issues"
   },
-  "homepage": "https://github.com/AlexeyKorkoza/angular2-users-experince#readme"
+  "homepage": "https://github.com/AlexeyKorkoza/angular2-users-experince#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "ejs": "^2.5.6",
+    "express": "^4.15.2",
+    "nodemon": "^1.11.0"
+  }
 }
