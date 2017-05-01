@@ -5,6 +5,8 @@ import { HttpModule } from "@angular/http";
 import { AppComponent }   from './app.component';
 import { CommentComponent } from './comment/comment.component';
 import { CommentListComponent } from './comment/comment-list.component';
+import { LoginComponent } from "./login/login.component";
+import { RegisterComponent } from "./register/register.component";
 
 import { CommentService } from './comment/comment.service';
 
@@ -20,7 +22,9 @@ import { routing } from './app.routing';
     declarations: [
         AppComponent,
         CommentComponent,
-        CommentListComponent
+        CommentListComponent,
+        LoginComponent,
+        RegisterComponent
     ],
     providers: [
         CommentService,
