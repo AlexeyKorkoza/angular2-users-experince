@@ -1,6 +1,6 @@
 import { Component, Input } from "@angular/core";
 
-import { Comment } from "./comment.model";
+import { Comment } from "../models/comment.model";
 
 @Component({
     selector: "comment",
