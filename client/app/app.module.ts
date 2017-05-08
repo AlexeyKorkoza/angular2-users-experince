@@ -8,7 +8,7 @@ import { CommentListComponent } from './comment/comment-list.component';
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
 
-import { CommentService } from './comment/comment.service';
+import { CommentService } from './services/comment.service';
 
 import { AppConfig } from './app.config';
 import { routing } from './app.routing';
