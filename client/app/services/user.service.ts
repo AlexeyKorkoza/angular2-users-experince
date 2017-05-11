@@ -1,18 +1,21 @@
-import {Http, Response} from "@angular/http";
+import {Http, Response, Headers, RequestOptions} from "@angular/http";
 import {Injectable} from "@angular/core";
+import {Observable} from "rxjs/Rx";
 
 import {AppConfig} from "../app.config";
-import {User} from "../models/user.model"
+import {User} from "../models/user.model";
 
 @Injectable()
 export class UserService {
 
-    constructor(
-        private http: Http,
-        private appConfig: AppConfig) { }
+    constructor(private http: Http,
+                private appConfig: AppConfig) {
+    }
 
-    create(user: User) {
-        return this.http.post(this.appConfig.urlServer + "/register", user).map((response: Response) => response.json());
+    create(user: User): Observable<User> {
+        return this.http.post(this.appConfig.urlServer + "/users/register", user )
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
 }

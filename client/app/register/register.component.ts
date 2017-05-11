@@ -19,13 +19,21 @@ export class RegisterComponent {
         private router: Router) { }
 
     register() {
+        let date = new Date();
+        let current_date = date.getDay() + "." + date.getMonth() + "." + date.getFullYear();
+        let time = date.getHours() + "." + date.getMinutes() + "." + date.getSeconds();
+        this.model.time = time;
+        this.model.date = current_date;
         this.userService.create(this.model)
             .subscribe(
                 data => {
-                    this.router.navigate(['/']);
+                    console.log(data);
+                    if(data.success){
+                        this.router.navigate(['/']);
+                    }
                 },
                 error => {
-                    alert(error);
+                    console.log(error);
                 }
             )
     }
