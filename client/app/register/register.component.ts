@@ -1,6 +1,7 @@
 import {Component} from "@angular/core";
 import {Router} from "@angular/router";
 import {UserService} from "../services/user.service";
+import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 import {error} from "util";
 
 @Component({
@@ -13,28 +14,47 @@ import {error} from "util";
 export class RegisterComponent {
 
     model: any = {};
+    registerForm: any;
+    message: string = "";
+    password_check: string = "";
 
     constructor(
         private userService: UserService,
-        private router: Router) { }
+        private router: Router,
+        private formBuilder: FormBuilder) {
+            this.registerForm = formBuilder.group({
+                'username' : [null, Validators.required],
+                'email': [null, Validators.required],
+                'password': [null, Validators.compose([Validators.required, Validators.minLength(6)])],
+                'confirm_password': [null ,Validators.required]
+            })
+         }
 
-    register() {
+    register(value: any) {
+        this.message = "";
+        this.password_check = "";
+        console.log(value);
+        if(value.password != value.confirm_password){
+            this.password_check = "Пароли не совпадают";
+        } else {
         let date = new Date();
         let current_date = date.getDay() + "." + date.getMonth() + "." + date.getFullYear();
         let time = date.getHours() + "." + date.getMinutes() + "." + date.getSeconds();
-        this.model.time = time;
-        this.model.date = current_date;
-        this.userService.create(this.model)
-            .subscribe(
-                data => {
-                    console.log(data);
-                    if(data.success){
-                        this.router.navigate(['/']);
-                    }
-                },
-                error => {
+        value.time = time;
+        value.date = current_date;
+        this.userService.create(value)
+             .subscribe(
+                 data => {
+                     if(data.success){
+                         this.router.navigate(['/']);
+                     } else {
+                         this.message = data.message;
+                     }
+                 },
+                 error => {
                     console.log(error);
-                }
-            )
+                 }
+             )
+    }
     }
 }
