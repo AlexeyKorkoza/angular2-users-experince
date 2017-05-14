@@ -10,7 +10,7 @@ export class AuthenticationService {
     constructor(private http: Http, private appConfig: AppConfig) { }
 
     login(data: any){
-        return this.http.post(this.appConfig.urlServer + "/login", data)
+        return this.http.post(this.appConfig.urlServer + "/auth/login", data)
             .map((res: Response) => res.json())
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }

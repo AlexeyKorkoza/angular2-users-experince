@@ -45,11 +45,13 @@ export class RegisterComponent {
         this.userService.create(value)
              .subscribe(
                  data => {
-                     if(data.success){
-                         this.router.navigate(['/']);
-                     } else {
-                         this.message = data.message;
-                     }
+                    //  if(data.success){
+                    //      
+                    //  } else {
+                    //      this.message = data.message;
+                    //  }
+                    console.log(data);
+                    this.router.navigate(['/']);
                  },
                  error => {
                     console.log(error);
