@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/AlexeyKorkoza/angular2-users-experince#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.1",
     "connect-flash": "^0.1.1",
     "cors": "^2.8.3",

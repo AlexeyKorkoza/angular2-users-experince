@@ -10,11 +10,12 @@ module.exports = router;
 function createUser(req, res) {
   var user = new User({
     username: req.body.username,
-    password: req.body.password,
     time: req.body.time,
     date: req.body.time,
     email: req.body.email
   });
+
+  user.password = user.generateHash(req.body.password),
 
   user.save(function(err) {
     if (err) {

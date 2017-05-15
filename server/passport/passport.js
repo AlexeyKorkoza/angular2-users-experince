@@ -30,6 +30,9 @@ module.exports = function(passport){
             if (!user)
                 return done(null, false, req.flash('loginMessage', 'Oops! User not found.'));
 
+            if (!user.validPassword(user, password))
+                return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
+
             return done(null, user);
         });
 
