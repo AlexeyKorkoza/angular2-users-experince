@@ -26,16 +26,10 @@ module.exports = function(passport) {
 
           var token = jwt.sign(payload, jwtSecret);
 
-         var userData = {
+          var userData = {
            "username": user.username,
-           "token": token,
-           "password": user.password,
-           "date": user.date,
-           "time": user.time,
-           "email": user.email
-         }
-
-          console.log(user);
+           "token": token
+          }
           
           return done(null, userData);
         });
