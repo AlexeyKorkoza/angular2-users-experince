@@ -3,9 +3,14 @@ var router = express.Router();
 var mongoose = require("mongoose");
 var User = require("../models/user");
 
-router.post("/register", createUser);
+// router.get("/user", getUser);
+router.post("/users/register", createUser);
 
 module.exports = router;
+
+// function getUser(req, res){
+
+// }
 
 function createUser(req, res) {
   var user = new User({

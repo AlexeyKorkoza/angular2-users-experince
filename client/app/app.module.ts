@@ -8,8 +8,14 @@ import { CommentComponent } from './comment/comment.component';
 import { CommentListComponent } from './comment/comment-list.component';
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
+import { HeaderComponent } from "./header/header.component";
 
 import { CommentService } from './services/comment.service';
+import { AuthenticationService } from './services/authentication.service';
+import { JwtService } from './services/jwt.service';
+import { ApiService } from './services/api.service';
+
+import { ShowAuthedDirective } from './directivies/auth.directive';
 
 import { AppConfig } from './app.config';
 import { routing } from './app.routing';
@@ -27,10 +33,15 @@ import { routing } from './app.routing';
         CommentComponent,
         CommentListComponent,
         LoginComponent,
-        RegisterComponent
+        RegisterComponent,
+        HeaderComponent,
+        ShowAuthedDirective
     ],
     providers: [
         CommentService,
+        AuthenticationService,
+        JwtService,
+        ApiService,
         AppConfig
     ],
     bootstrap: [

@@ -1,41 +1,45 @@
 var LocalStrategy = require("passport-local").Strategy;
-var User = require("../models/user");
+var jwt = require('jsonwebtoken');
+var User = require('../models/user');
+var jwtSecret = "Anaheim Mighty Ducks";
 
-module.exports = function(passport){
+module.exports = function(passport) {
+  passport.use("local-login", new LocalStrategy({
+        passReqToCallback: true
+      },
+      function(req, username, password, done) {
+        User.findOne({ "username": username }, function(err, user) {
+          
+          if (err) {
+            return done(err);
+          }
+          if (!user) {
+            return done(null, false, req.flash("loginMessage", "Oops! User not found."));
+          }
+          if (!user.validPassword(user, password)) {
+            return done(null, false, req.flash("loginMessage", "Oops! Wrong password."));
+          }         
 
-    // used to serialize the user for the session
-    passport.serializeUser(function(user, done) {
-        done(null, user.id);
-    });
+          var payload = {
+            sub: user._id
+          }
 
-    // used to deserialize the user
-    passport.deserializeUser(function(id, done) {
-        User.findById(id, function(err, user) {
-            done(err, user);
+          var token = jwt.sign(payload, jwtSecret);
+
+         var userData = {
+           "username": user.username,
+           "token": token,
+           "password": user.password,
+           "date": user.date,
+           "time": user.time,
+           "email": user.email
+         }
+
+          console.log(user);
+          
+          return done(null, userData);
         });
-    });
-
-    passport.use('local-login', new LocalStrategy({
-        // by default, local strategy uses username and password, we will override with email
-        usernameField : 'username',
-        passwordField : 'password',
-        passReqToCallback : true
-    },
-    function(req, username, password, done) {
-        User.findOne({ 'username' :  username }, function(err, user) {
-            
-            if (err)
-                return done(err);
-
-            if (!user)
-                return done(null, false, req.flash('loginMessage', 'Oops! User not found.'));
-
-            if (!user.validPassword(user, password))
-                return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
-
-            return done(null, user);
-        });
-
-    }));
-
-}
+      }
+    )
+  );
+};

@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from "@angular/router"
+
+import { AuthenticationService } from './services/authentication.service';
+
+import { User } from './models/user.model';
 
 @Component({
     selector: 'app',
@@ -6,6 +11,13 @@ import { Component } from '@angular/core';
     styleUrls: ['../style.css']
 })
 
-export class AppComponent{
+export class AppComponent implements OnInit {
+
+    constructor(private authenticationService: AuthenticationService,
+                private router: Router) { }
+
+    ngOnInit() {
+        this.authenticationService.checkAuth();
+    }
 
 }
