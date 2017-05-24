@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { LocalStorageService, SessionStorageService } from 'ng2-webstorage';
 
 @Injectable()
 export class JwtService {
 
-    constructor(private localStorageService: LocalStorageService) { }
+    constructor() { }
 
     getToken() {
         return localStorage.getItem('token');

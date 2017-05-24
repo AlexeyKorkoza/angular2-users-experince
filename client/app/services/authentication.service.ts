@@ -22,11 +22,11 @@ export class AuthenticationService {
     private currentUserSubject = new BehaviorSubject<any>('');
     private isAuthenticatedSubject = new ReplaySubject(1);
 
-    currentUser(){
+    currentUser(): Observable<any> {
         return this.currentUserSubject.asObservable();
     }
 
-    authenticated(){
+    authenticated(): Observable<any> {
         return this.isAuthenticatedSubject.asObservable();
     }
 
