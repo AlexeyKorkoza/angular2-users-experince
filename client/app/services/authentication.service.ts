@@ -9,14 +9,14 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { User } from '../models/user.model';
 
 import { JwtService } from './jwt.service';
-import { ApiService } from './api.service';
+import { UserService } from './user.service';
 
 @Injectable()
 export class AuthenticationService {
     constructor(private http: Http,
         private appConfig: AppConfig,
         private jwtService: JwtService,
-        private apiService: ApiService,
+        private userService: UserService,
         private router: Router) { }
 
     private currentUserSubject = new BehaviorSubject<any>('');
@@ -33,8 +33,9 @@ export class AuthenticationService {
     checkAuth() {
         if (this.jwtService.getToken()) {
             console.log("Auth");
-            this.apiService.getUserByToken().subscribe(
+            this.userService.getUser().subscribe(
                 data => {
+                    console.log(data);
                     console.log(data.user);
                     this.setAuth(data.user)
                 },

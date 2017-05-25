@@ -7,8 +7,7 @@ import {error} from "util";
 @Component({
     selector: "register",
     templateUrl: "app/register/register.component.html",
-    styleUrls: ['../../style.css'],
-    providers: [UserService]
+    styleUrls: ['../../style.css']
 })
 
 export class RegisterComponent {

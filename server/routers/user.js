@@ -1,16 +1,34 @@
 var express = require("express");
 var router = express.Router();
 var mongoose = require("mongoose");
+var token = require('./token');
 var User = require("../models/user");
 
-// router.get("/user", getUser);
-router.post("/users/register", createUser);
+router.get("", token.required, getUser);
+router.post("/register", createUser);
 
 module.exports = router;
 
-// function getUser(req, res){
+function getUser(req, res){
 
-// }
+  User.findById(req.payload.id, function(err, user){
+    if(err){
+      res.json({
+        success: false,
+        message: err
+      })
+    }
+    if(user){
+      res.json({
+        success: true,
+        user: {
+          username: user.username,
+          token: user.generateJWT()
+        }
+      })
+    }
+  })
+}
 
 function createUser(req, res) {
   var user = new User({
