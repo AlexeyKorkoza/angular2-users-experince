@@ -32,11 +32,8 @@ export class AuthenticationService {
 
     checkAuth() {
         if (this.jwtService.getToken()) {
-            console.log("Auth");
             this.userService.getUser().subscribe(
                 data => {
-                    console.log(data);
-                    console.log(data.user);
                     this.setAuth(data.user)
                 },
                 err => {
@@ -44,19 +41,14 @@ export class AuthenticationService {
                 }
             )
         } else {
-            console.log("NoAuth");
             this.logout();
         }
     }
 
     setAuth(user: any) {
-        console.log(user);
-        console.log(user.token);
         this.currentUserSubject.next(user);
         this.isAuthenticatedSubject.next(true);
         this.jwtService.setToken(user.token);
-        console.log(this.currentUserSubject);
-        console.log(this.isAuthenticatedSubject);
     }
 
     login(user: any) {

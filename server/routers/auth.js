@@ -25,8 +25,7 @@ router.post("/login", function(req, res) {
         }],
       });
     }
-    console.log("LOGIN!");
-    console.log(userData);
+
     if(userData) {
      return res.status(200).json({
        success: true,
