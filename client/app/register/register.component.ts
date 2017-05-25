@@ -7,8 +7,7 @@ import {error} from "util";
 @Component({
     selector: "register",
     templateUrl: "app/register/register.component.html",
-    styleUrls: ['../../style.css'],
-    providers: [UserService]
+    styleUrls: ['../../style.css']
 })
 
 export class RegisterComponent {
@@ -45,11 +44,13 @@ export class RegisterComponent {
         this.userService.create(value)
              .subscribe(
                  data => {
-                     if(data.success){
-                         this.router.navigate(['/']);
-                     } else {
-                         this.message = data.message;
-                     }
+                    //  if(data.success){
+                    //      
+                    //  } else {
+                    //      this.message = data.message;
+                    //  }
+                    console.log(data);
+                    this.router.navigate(['/']);
                  },
                  error => {
                     console.log(error);
