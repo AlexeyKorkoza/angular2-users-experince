@@ -13,7 +13,6 @@ import { HeaderComponent } from "./header/header.component";
 import { CommentService } from './services/comment.service';
 import { AuthenticationService } from './services/authentication.service';
 import { JwtService } from './services/jwt.service';
-import { ApiService } from './services/api.service';
 import { UserService } from './services/user.service';
 
 import { ShowAuthedDirective } from './directivies/auth.directive';
@@ -42,7 +41,6 @@ import { routing } from './app.routing';
         CommentService,
         AuthenticationService,
         JwtService,
-        ApiService,
         UserService,
         AppConfig
     ],
