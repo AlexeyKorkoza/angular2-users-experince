@@ -16,7 +16,7 @@ export class UserService {
     }
 
     create(user: User): Observable<User> {
-        return this.http.post(this.appConfig.urlServer + "/users/register", user )
+        return this.http.post(this.appConfig.urlServer + "/user/register", user )
             .map((res: Response) => res.json())
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
