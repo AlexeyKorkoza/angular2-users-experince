@@ -1,5 +1,5 @@
 var jwt = require('express-jwt');
-var jwtSecret = "Anaheim Mighty Ducks";
+var config = require('../config');
 
 function getTokenFromHeader(req){
   if (req.headers.authorization && req.headers.authorization.split(' ')[0] === 'Token') {
@@ -11,7 +11,7 @@ function getTokenFromHeader(req){
 
 var token = {
   required: jwt({
-    secret: jwtSecret,
+    secret: config.get('jwtSecret'),
     userProperty: 'payload',
     getToken: getTokenFromHeader
   })
