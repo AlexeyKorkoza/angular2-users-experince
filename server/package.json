@@ -33,8 +33,10 @@
     "mongodb": "^2.2.26",
     "mongoose": "^4.9.6",
     "morgan": "^1.8.1",
+    "nconf": "^0.8.4",
     "nodemon": "^1.11.0",
     "passport": "^0.3.2",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7"
   }
 }

@@ -6,12 +6,13 @@ var flash = require("connect-flash");
 var mongoose = require("mongoose");
 var morgan = require("morgan");
 var passport = require("passport");
+var config = require("./config");
 var app = express();
 
-var port = 8000;
+var port = process.env.PORT || config.get('port');
 
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost:27017/users_experince");
+mongoose.connect(config.get('db'));
 
 app.use(cors());
 
