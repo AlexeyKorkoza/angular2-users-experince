@@ -1,0 +1,32 @@
+<h1>Регистрация</h1>
+<form [formGroup]="registerForm">
+    <div class="form-group" [ngClass]="{'has-error':!registerForm.controls['username'].valid && registerForm.controls['username'].touched}">
+        <label><b>Имя пользователя:</b></label>
+        <input type="text" class="form-control" id="register-username" [formControl]="registerForm.controls['username']" placeholder="Имя пользователя">
+        <div *ngIf="registerForm.controls['username'].hasError('required') && registerForm.controls['username'].touched" class="alert alert-danger">Введите имя пользователя.</div>
+    </div>
+    <div class="form-group" [ngClass]="{'has-error':!registerForm.controls['email'].valid && registerForm.controls['email'].touched}">
+        <label><b>Электронный адрес:</b></label>
+        <input type="email" class="form-control" id="email" placeholder="Электронный адрес" [formControl]="registerForm.controls['email']">
+        <div *ngIf="registerForm.controls['email'].hasError('required') && registerForm.controls['email'].touched" class="alert alert-danger">Введите электронный адрес</div>
+    </div>
+    <div class="form-group" [ngClass]="{'has-error':!registerForm.controls['password'].valid && registerForm.controls['password'].touched}">
+        <label><b>Пароль:</b></label>
+        <input type="password" class="form-control" id="register-password" [formControl]="registerForm.controls['password']">
+        <div *ngIf="registerForm.controls['password'].hasError('required') && registerForm.controls['password'].touched" class="alert alert-danger">Введите пароль</div>
+        <div *ngIf="registerForm.controls['password'].hasError('minlength') && registerForm.controls['password'].touched" class="alert alert-danger">Пароль должен состоять минимум из шести букв</div>
+    </div>
+    <div class="form-group" [ngClass]="{'has-error':!registerForm.controls['confirm_password'].valid && registerForm.controls['confirm_password'].touched}">
+        <label><b>Подтвердите пароль:</b></label>
+        <input type="password" class="form-control" id="confirm_password" [formControl]="registerForm.controls['confirm_password']">
+        <div *ngIf="registerForm.controls['confirm_password'].hasError('required') && registerForm.controls['confirm_password'].touched" class="alert alert-danger">Введите пароль еще раз</div>
+    </div>
+    <div class="form-group">
+        <p>{{message}}</p>
+        <p>{{password_check}}</p>
+    </div>
+    <div class="form-group">
+        <button type="submit" (click)="register(registerForm.value)" [disabled]="!registerForm.valid" class="btn btn-default">Зарегистрироваться</button>
+        <a [routerLink]="['/']" class="btn btn-default">Назад</a>
+    </div>
+</form>

@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Http, Response } from "@angular/http";
 
 import { AppConfig } from "../app.config";
-import { Comment } from "./comment.model";
+import { Comment } from "../models/comment.model";
 import { Observable } from "rxjs/Rx";
 import 'rxjs/add/operator/map';
 
