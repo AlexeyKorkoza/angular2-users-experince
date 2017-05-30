@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+    moduleId: module.id,
     selector: 'footer-layout',
-    templateUrl: 'app/footer/footer.component.html',
-    styleUrls: ["app/footer/footer.component.css"]
+    templateUrl: 'footer.component.html',
+    styleUrls: ["footer.component.css"]
 })
 
 export class FooterComponent implements OnInit {
