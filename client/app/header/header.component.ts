@@ -6,7 +6,8 @@ import { User } from '../models/user.model';
 
 @Component({
     selector: 'header-layout',
-    templateUrl: 'app/header/header.component.html'
+    templateUrl: 'app/header/header.component.html',
+    styleUrls: ["../../style.css"]
 })
 
 export class HeaderComponent implements OnInit {
@@ -14,7 +15,6 @@ export class HeaderComponent implements OnInit {
     }
 
     currentUser: User;
-    condition: boolean;
 
     ngOnInit() {
         this.authenticationService.currentUser().subscribe(

@@ -1,16 +1,17 @@
 <header>
-    <p>{{condition}}</p>
-    <div *showAuthed="false">
-        <div class="form-inline">
-            <div class="form-group">
-                <a [routerLink]="['/login']" class="btn btn-default">Login</a>
+    <nav class="navbar navbar-inverse navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand logo" routerLink="/">Angular2-users-exprince</a>
             </div>
-            <div class="form-group">
-                <a [routerLink]="['/register']" class="btn btn-default">Register</a>
-            </div>
+            <ul class="nav navbar-nav navbar-right" *showAuthed="false">
+                <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/login" ><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/register" ><span class="glyphicon glyphicon-user"></span> Register</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" *showAuthed="true">
+                <li class="nav-item"><a>You logged under: <span class="currentUsername">{{currentUser.username}}</span></a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/login" (click)="logout()"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+            </ul>
         </div>
-    </div>
-    <div *showAuthed="true">
-        <a class="btn btn-default" [routerLink]="['/login']" (click)="logout()">Log out</a>
-    </div>
+    </nav>
 </header>
