@@ -17,3 +17,33 @@
     font-weight: 900;
     color: black;
 }
+
+.footer-copyright {
+    background: #66ff66;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.footer-copyright p {
+    font: 16pt 'Source Sans Pro', sans-serif;
+    text-align: center;
+    color: white;
+}
+
+.footer-copyright .footer-icons {
+    margin: 0 auto;
+    display: table;
+}
+
+.footer-copyright .github i{
+    -webkit-transition: -webkit-transform 0.4s; 
+    transition: transform 0.4s;
+}
+
+.footer-copyright .github i:hover {
+    color: white;
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+}
