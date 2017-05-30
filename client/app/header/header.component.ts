@@ -7,7 +7,7 @@ import { User } from '../models/user.model';
 @Component({
     selector: 'header-layout',
     templateUrl: 'app/header/header.component.html',
-    styleUrls: ["../../style.css"]
+    styleUrls: ["app/header/header.component.css"]
 })
 
 export class HeaderComponent implements OnInit {
