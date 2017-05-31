@@ -2,6 +2,9 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from "@angular/http";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { Ng2DropdownModule } from 'ng2-material-dropdown';
 
 import { AppComponent }   from './app.component';
 import { CommentComponent } from './comment/comment.component';
@@ -28,6 +31,8 @@ import { routing } from './app.routing';
         HttpModule,
         FormsModule,
         ReactiveFormsModule,
+        Ng2DropdownModule,
+        BrowserAnimationsModule,
         routing
     ],
     declarations: [
