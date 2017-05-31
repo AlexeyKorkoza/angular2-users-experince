@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit {
     }
 
     currentUser: User;
+    isIn: boolean = false;
 
     ngOnInit() {
         this.authenticationService.currentUser().subscribe(
@@ -27,5 +28,10 @@ export class HeaderComponent implements OnInit {
 
     logout() {
         this.authenticationService.logout();
+    }
+
+    toggleClass() {
+        let bool = this.isIn;
+        this.isIn = bool === false ? true : false; 
     }
 }

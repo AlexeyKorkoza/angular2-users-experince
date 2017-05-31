@@ -10,6 +10,7 @@ import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
 import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from "./footer/footer.component";
+import { ProfileComponent } from "./profile/profile.component";
 
 import { CommentService } from './services/comment.service';
 import { AuthenticationService } from './services/authentication.service';
@@ -37,6 +38,7 @@ import { routing } from './app.routing';
         RegisterComponent,
         HeaderComponent,
         FooterComponent,
+        ProfileComponent,
         ShowAuthedDirective
     ],
     providers: [
