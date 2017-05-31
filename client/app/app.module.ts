@@ -4,8 +4,6 @@ import { HttpModule } from "@angular/http";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { Ng2DropdownModule } from 'ng2-material-dropdown';
-
 import { AppComponent }   from './app.component';
 import { CommentComponent } from './comment/comment.component';
 import { CommentListComponent } from './comment/comment-list.component';
@@ -13,7 +11,9 @@ import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
 import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from "./footer/footer.component";
-import { ProfileComponent } from "./profile/profile.component";
+import { OverViewProfileComponent } from "./profile/overview-profile.component";
+import { EditProfileComponent } from "./profile/edit-profile.component";
+import { UserListCommentComponent } from "./comment/user-list-comment.component";
 
 import { CommentService } from './services/comment.service';
 import { AuthenticationService } from './services/authentication.service';
@@ -31,7 +31,6 @@ import { routing } from './app.routing';
         HttpModule,
         FormsModule,
         ReactiveFormsModule,
-        Ng2DropdownModule,
         BrowserAnimationsModule,
         routing
     ],
@@ -43,7 +42,9 @@ import { routing } from './app.routing';
         RegisterComponent,
         HeaderComponent,
         FooterComponent,
-        ProfileComponent,
+        OverViewProfileComponent,
+        EditProfileComponent,
+        UserListCommentComponent,
         ShowAuthedDirective
     ],
     providers: [

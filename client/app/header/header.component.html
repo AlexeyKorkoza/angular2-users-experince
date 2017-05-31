@@ -5,26 +5,12 @@
                 <a class="navbar-brand logo" routerLink="/">Angular2-users-exprince</a>
             </div>
             <ul class="nav navbar-nav navbar-right" *showAuthed="false">
-                <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/register"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+                <li class="nav-item" [routerLinkActive]="['active']"><a class="nav-link" [routerLink]="['/login']"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li class="nav-item" [routerLinkActive]="['active']"><a class="nav-link" [routerLink]="['/register']"><span class="glyphicon glyphicon-user"></span> Register</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right" *showAuthed="true">
-                <li class="nav-item user">
-                    <ng2-dropdown>
-                        <ng2-dropdown-button>
-                           {{currentUser.username}}
-                        </ng2-dropdown-button>
-                        <ng2-dropdown-menu>
-                            <ng2-menu-item>
-                                <a href="#">My comments</a>
-                            </ng2-menu-item>
-                            <ng2-menu-item>
-                                <a href="#">Settings</a>
-                            </ng2-menu-item>
-                        </ng2-dropdown-menu>
-                    </ng2-dropdown>
-                </li>
-                <li class="nav-item"><a class="nav-link" routerLink="/login" (click)="logout()"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+                <li class="nav-item" [routerLinkActive]="['active']"><a class="nav-link" [routerLink]="['/user', currentUser.username]">{{currentUser.username}}</a></li>
+                <li class="nav-item"><a class="nav-link" [routerLink]="['/login']" (click)="logout()"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
             </ul>
         </div>
     </nav>

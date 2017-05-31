@@ -28,8 +28,7 @@
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
 
       // other libraries
-      'rxjs': 'npm:rxjs',
-      'ng2-material-dropdown': 'npm:ng2-material-dropdown/dist/ng2-dropdown.bundle.js'
+      'rxjs': 'npm:rxjs'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -38,9 +37,6 @@
         defaultExtension: 'js'
       },
       rxjs: {
-        defaultExtension: 'js'
-      },
-      'ng2-material-dropdown' : {
         defaultExtension: 'js'
       }
     }
