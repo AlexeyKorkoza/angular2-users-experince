@@ -9,13 +9,7 @@
                 <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/register"><span class="glyphicon glyphicon-user"></span> Register</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right" *showAuthed="true">
-                <!--<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">{{currentUser.username}} <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">My comments</a></li>
-                        <li><a href="#">Settings</a></li>
-                    </ul>
-                </li>-->
-                <li>
+                <li class="nav-item user">
                     <ng2-dropdown>
                         <ng2-dropdown-button>
                            {{currentUser.username}}
