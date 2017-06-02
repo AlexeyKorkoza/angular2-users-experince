@@ -26,17 +26,16 @@ userSchema.methods.validPassword = function (user, password) {
   return bcrypt.compareSync(password, user.password);
 };
 
-userSchema.methods.generateJWT = function() {
-  return jwt.sign(
-    {
-      id: this._id,
-      username: this.username,
-      exp: Math.floor(Date.now() / 1000) + 60 * 60
-    },
-    jwtSecret
-  );
-};
+userSchema.methods.generateJWT = function(){
 
-var User = mongoose.model("User", userSchema);
+  return jwt.sign({
+    id: this._id,
+    username: this.username,
+    exp: Math.floor(Date.now() / 1000) + (60 * 60)
+  }, jwtSecret);
+
+}
+
+var User = mongoose.model('User', userSchema);
 
 module.exports = User;

@@ -54,30 +54,24 @@ function updateUser(req, res) {
 
   User.findById(req.payload.id, function(err, user) {
 
-    console.log(req.body.user.username);
-    console.log(req.body.user.password);
-    console.log(user);
-
     if(!user) {
       return res.status(401);
     }
 
     if(req.body.user.password !== '') {
       user.password = user.generateHash(req.body.user.password);
-      console.log(user.password);
     }
 
     user.username = req.body.user.username;
 
     user.save(function(err, user1) {
-      console.log(user1);
       if(err) {
         return res.status(500).json({
           message: err
         })
       } else {
         return res.status(200).json({
-          user: { 
+          user: {
            username: user1.username,
            token: user1.generateJWT()
          }
