@@ -19,16 +19,11 @@ export class AuthenticationService {
         private userService: UserService,
         private router: Router) { }
 
-    private currentUserSubject = new BehaviorSubject<any>('');
+    private currentUserSubject = new BehaviorSubject<User>(new User());
+    public currentUser = this.currentUserSubject.asObservable();
+
     private isAuthenticatedSubject = new ReplaySubject(1);
-
-    currentUser(): Observable<any> {
-        return this.currentUserSubject.asObservable();
-    }
-
-    authenticated(): Observable<any> {
-        return this.isAuthenticatedSubject.asObservable();
-    }
+    public isAuthenticated = this.isAuthenticatedSubject.asObservable();
 
     checkAuth() {
         if (this.jwtService.getToken()) {
@@ -56,8 +51,25 @@ export class AuthenticationService {
             .map((res) => {
                 let data = res.json();
                 this.setAuth(data.user);
-                return data;
+                return data.user;
             })
+    }
+
+    getCurrentUser(): User {
+        return this.currentUserSubject.value;
+    }
+
+    updateUser(data: any) {
+
+        let headers = new Headers();
+        headers.append('Authorization', 'Token ' + this.jwtService.getToken());
+
+        return this.http.put(this.appConfig.urlServer + '/user/edit', { user: data }, { headers: headers })
+            .map((res: Response) => {
+                let resp = res.json();
+                this.currentUserSubject.next(resp.user);
+                return resp.user;
+            });
     }
 
     logout() {
