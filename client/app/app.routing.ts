@@ -13,6 +13,7 @@ const appRoutes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'user/:username', component: OverViewProfileComponent, 
         children: [
+          { path: '', pathMatch: 'full', redirectTo: 'edit'},
           { path: 'edit', component: EditProfileComponent },
           { path: 'comments', component: UserListCommentComponent }
         ]

@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { ActivatedRoute, Router } from "@angular/router";
+
+import { UserService } from "../services/user.service";
+import { AuthenticationService } from "../services/authentication.service";
+
+import { User } from "../models/user.model";
 
 @Component({
     moduleId: module.id,
@@ -7,7 +14,38 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class EditProfileComponent implements OnInit {
-    constructor() { }
 
-    ngOnInit() { }
+    constructor(private userService: UserService,
+        private formBuilder: FormBuilder,
+        private route: ActivatedRoute,
+        private router: Router,
+        private authenticationService: AuthenticationService) {
+        this.editForm = formBuilder.group({
+             'username': [null, Validators.compose([Validators.required, Validators.minLength(0)])],
+             'password': ''
+        })
+    }
+
+    editForm: FormGroup;
+    username: string;
+    user: User = new User();
+
+    ngOnInit() {
+        this.username = this.route.snapshot.parent.params['username'];
+        this.userService.getUserByUsername(this.username);
+        console.log(this.authenticationService.getCurrentUser());
+        (<any>Object).assign(this.user, this.authenticationService.getCurrentUser());
+        console.log(this.user);
+    }
+
+    save(value: any) {
+        (<any>Object).assign(this.user, value);
+        console.log(this.user);
+        this.authenticationService.updateUser(this.user).subscribe(
+            data => {
+                console.log(data);
+                this.router.navigate(['']);
+            }
+        )
+    }
 }
