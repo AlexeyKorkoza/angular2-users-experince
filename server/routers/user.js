@@ -63,7 +63,7 @@ function updateUser(req, res) {
     }
 
     if(req.body.user.password !== '') {
-      user.password = user.generateHash(req.body.password);
+      user.password = user.generateHash(req.body.user.password);
       console.log(user.password);
     }
 
@@ -96,7 +96,7 @@ function createUser(req, res) {
     email: req.body.email
   });
 
-  user.password = user.generateHash(req.body.password),
+  user.password = user.generateHash(req.body.password);
 
   user.save(function(err) {
     if (err) {

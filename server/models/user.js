@@ -23,25 +23,20 @@ userSchema.methods.generateHash = function (password) {
 };
 
 userSchema.methods.validPassword = function (user, password) {
-  console.log(bcrypt.hashSync(password, bcrypt.genSaltSync(8), null));
-  console.log(user.password);
   return bcrypt.compareSync(password, user.password);
 };
 
-userSchema.methods.checkPassword = function () {
-  return bcrypt.compareSync();
-}
+userSchema.methods.generateJWT = function() {
+  return jwt.sign(
+    {
+      id: this._id,
+      username: this.username,
+      exp: Math.floor(Date.now() / 1000) + 60 * 60
+    },
+    jwtSecret
+  );
+};
 
-userSchema.methods.generateJWT = function () {
-
-  return jwt.sign({
-    id: this._id,
-    username: this.username,
-    exp: Math.floor(Date.now() / 1000) + (60 * 60)
-  }, jwtSecret);
-
-}
-
-var User = mongoose.model('User', userSchema);
+var User = mongoose.model("User", userSchema);
 
 module.exports = User;

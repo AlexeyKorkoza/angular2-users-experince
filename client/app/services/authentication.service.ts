@@ -41,7 +41,6 @@ export class AuthenticationService {
     }
 
     setAuth(user: any) {
-        console.log(user);
         this.currentUserSubject.next(user);
         this.isAuthenticatedSubject.next(true);
         this.jwtService.setToken(user.token);
@@ -51,9 +50,8 @@ export class AuthenticationService {
         return this.http.post(this.appConfig.urlServer + "/auth/login", user)
             .map((res) => {
                 let data = res.json();
-                 console.log(data);
                 this.setAuth(data.user);
-                return data;
+                return data.user;
             })
     }
 
@@ -69,7 +67,6 @@ export class AuthenticationService {
         return this.http.put(this.appConfig.urlServer + '/user/edit', { user: data }, { headers: headers })
             .map((res: Response) => {
                 let resp = res.json();
-                console.log(resp);
                 this.currentUserSubject.next(resp.user);
                 return resp.user;
             });
