@@ -25,7 +25,7 @@ export class ShowAuthedDirective {
     private subscription: Subscription;
 
     @Input() set showAuthed(condition: boolean) {
-        this.authenticationService.authenticated().subscribe(
+        this.authenticationService.isAuthenticated.subscribe(
             (isAuthenticated) => {
                 this.isAuthenticated = isAuthenticated;
                 if (!condition && !this.isAuthenticated || condition && this.isAuthenticated) {
