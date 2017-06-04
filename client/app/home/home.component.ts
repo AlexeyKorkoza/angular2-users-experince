@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { User } from "../models/user.model";
+import { UserService } from "../services/user.service";
+
 @Component({
     moduleId: module.id,
     selector: 'home',
@@ -8,11 +11,18 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class HomeComponent implements OnInit {
-    constructor() {
+    constructor(private userService: UserService) {
     }
 
-    ngOnInit() {
+    users: User [];
 
+    ngOnInit() {
+        this.userService.getLastFiveUser().subscribe(
+            (data) => {
+                console.log(data);
+                this.users = data.users;
+            }
+        )
     }
 
 }
