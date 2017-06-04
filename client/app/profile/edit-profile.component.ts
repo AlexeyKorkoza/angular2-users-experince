@@ -33,14 +33,11 @@ export class EditProfileComponent implements OnInit {
     ngOnInit() {
         this.username = this.route.snapshot.parent.params['username'];
         this.userService.getUserByUsername(this.username);
-        console.log(this.authenticationService.getCurrentUser());
         (<any>Object).assign(this.user, this.authenticationService.getCurrentUser());
-        console.log(this.user);
     }
 
     save(value: any) {
         (<any>Object).assign(this.user, value);
-        console.log(this.user);
         this.authenticationService.updateUser(this.user).subscribe(
             data => {
                 console.log(data);
