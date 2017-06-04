@@ -5,7 +5,7 @@ import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
 import { OverViewProfileComponent } from "./profile/overview-profile.component";
 import { EditProfileComponent } from "./profile/edit-profile.component";
-import { UserListCommentComponent } from "./comment/user-list-comment.component";
+import { ProfileCommentsComponent } from "./profile/profile-comments.component";
 
 const appRoutes: Routes = [
     { path: '', component: CommentListComponent },
@@ -13,9 +13,8 @@ const appRoutes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'user/:username', component: OverViewProfileComponent, 
         children: [
-          { path: '', pathMatch: 'full', redirectTo: 'edit'},
-          { path: 'edit', component: EditProfileComponent },
-          { path: 'comments', component: UserListCommentComponent }
+          { path: '', component: EditProfileComponent },
+          { path: 'comments', component: ProfileCommentsComponent }
         ]
     }
 ];
