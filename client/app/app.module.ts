@@ -14,6 +14,7 @@ import { FooterComponent } from "./footer/footer.component";
 import { OverViewProfileComponent } from "./profile/overview-profile.component";
 import { EditProfileComponent } from "./profile/edit-profile.component";
 import { ProfileCommentsComponent } from "./profile/profile-comments.component";
+import { HomeComponent } from "./home/home.component";
 
 import { CommentService } from './services/comment.service';
 import { AuthenticationService } from './services/authentication.service';
@@ -45,6 +46,7 @@ import { routing } from './app.routing';
         OverViewProfileComponent,
         EditProfileComponent,
         ProfileCommentsComponent,
+        HomeComponent,
         ShowAuthedDirective
     ],
     providers: [
