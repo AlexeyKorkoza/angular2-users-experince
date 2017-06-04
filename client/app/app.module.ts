@@ -2,6 +2,7 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from "@angular/http";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent }   from './app.component';
 import { CommentComponent } from './comment/comment.component';
@@ -9,6 +10,10 @@ import { CommentListComponent } from './comment/comment-list.component';
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
 import { HeaderComponent } from "./header/header.component";
+import { FooterComponent } from "./footer/footer.component";
+import { OverViewProfileComponent } from "./profile/overview-profile.component";
+import { EditProfileComponent } from "./profile/edit-profile.component";
+import { ProfileCommentsComponent } from "./profile/profile-comments.component";
 
 import { CommentService } from './services/comment.service';
 import { AuthenticationService } from './services/authentication.service';
@@ -26,6 +31,7 @@ import { routing } from './app.routing';
         HttpModule,
         FormsModule,
         ReactiveFormsModule,
+        BrowserAnimationsModule,
         routing
     ],
     declarations: [
@@ -35,6 +41,10 @@ import { routing } from './app.routing';
         LoginComponent,
         RegisterComponent,
         HeaderComponent,
+        FooterComponent,
+        OverViewProfileComponent,
+        EditProfileComponent,
+        ProfileCommentsComponent,
         ShowAuthedDirective
     ],
     providers: [

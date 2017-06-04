@@ -7,7 +7,7 @@ module.exports = function(passport) {
       },
       function(req, username, password, done) {
         User.findOne({ "username": username }, function(err, user) {
-          
+
           if (err) {
             return done(err);
           }
@@ -21,7 +21,7 @@ module.exports = function(passport) {
           var userData = {
            "username": user.username,
            "token": user.generateJWT()
-          }
+          };
           
           return done(null, userData);
         });

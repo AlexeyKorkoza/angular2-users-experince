@@ -4,9 +4,9 @@ import { UserService } from "../services/user.service";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 @Component({
+    moduleId: module.id,
     selector: "register",
-    templateUrl: "app/register/register.component.html",
-    styleUrls: ['../../style.css']
+    templateUrl: "register.component.html"
 })
 
 export class RegisterComponent {

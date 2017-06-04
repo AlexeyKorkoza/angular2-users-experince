@@ -5,8 +5,10 @@ import { AuthenticationService } from '../services/authentication.service';
 import { User } from '../models/user.model';
 
 @Component({
+    moduleId: module.id,
     selector: 'header-layout',
-    templateUrl: 'app/header/header.component.html'
+    templateUrl: 'header.component.html',
+    styleUrls: ["header.component.css"]
 })
 
 export class HeaderComponent implements OnInit {
@@ -14,10 +16,9 @@ export class HeaderComponent implements OnInit {
     }
 
     currentUser: User;
-    condition: boolean;
 
     ngOnInit() {
-        this.authenticationService.currentUser().subscribe(
+        this.authenticationService.currentUser.subscribe(
             (userData) => {
                 this.currentUser = userData;
             }
@@ -27,4 +28,5 @@ export class HeaderComponent implements OnInit {
     logout() {
         this.authenticationService.logout();
     }
+
 }

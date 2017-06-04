@@ -4,9 +4,9 @@ import {CommentService} from "../services/comment.service";
 import {Comment} from "../models/comment.model";
 
 @Component({
+    moduleId: module.id,
     selector: "comment-list",
-    templateUrl: "app/comment/comment-list.component.html",
-    styleUrls: ['../../style.css'],
+    templateUrl: "comment-list.component.html",
     providers: [CommentService]
 })
 

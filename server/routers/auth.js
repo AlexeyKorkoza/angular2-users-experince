@@ -33,7 +33,7 @@ router.post("/login", function(req, res) {
      })
     } else {
       return res.status(200).json({
-       success: true,
+       success: false,
        message: req.flash('loginMessage')[0],
      })
     }

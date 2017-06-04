@@ -18,12 +18,12 @@ var userSchema = new Schema({
   time: String
 });
 
-userSchema.methods.generateHash = function(password) {
-     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+userSchema.methods.generateHash = function (password) {
+  return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
 
-userSchema.methods.validPassword = function(user, password) {
-     return bcrypt.compareSync(password, user.password);
+userSchema.methods.validPassword = function (user, password) {
+  return bcrypt.compareSync(password, user.password);
 };
 
 userSchema.methods.generateJWT = function(){
