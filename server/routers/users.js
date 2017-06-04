@@ -62,7 +62,6 @@ function getLastFiveUsers(req, res) {
         })
       }
 
-      console.log(users);
       if (users) {
         res.status(200).json({
           users: users
