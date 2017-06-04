@@ -13,7 +13,7 @@ import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from "./footer/footer.component";
 import { OverViewProfileComponent } from "./profile/overview-profile.component";
 import { EditProfileComponent } from "./profile/edit-profile.component";
-import { UserListCommentComponent } from "./comment/user-list-comment.component";
+import { ProfileCommentsComponent } from "./profile/profile-comments.component";
 
 import { CommentService } from './services/comment.service';
 import { AuthenticationService } from './services/authentication.service';
@@ -44,7 +44,7 @@ import { routing } from './app.routing';
         FooterComponent,
         OverViewProfileComponent,
         EditProfileComponent,
-        UserListCommentComponent,
+        ProfileCommentsComponent,
         ShowAuthedDirective
     ],
     providers: [
