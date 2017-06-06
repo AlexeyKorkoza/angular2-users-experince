@@ -26,4 +26,8 @@ export class CommentService {
         return this.http.post(this.appConfig.urlServer + "/comment/create", { comment: comment } )
             .map((response: Response) => response.json());
     }
+
+    removeComment(id: string) {
+        return this.http.delete(this.appConfig.urlServer + "/comment/" + id, { params: { id: id } })
+    }
 }

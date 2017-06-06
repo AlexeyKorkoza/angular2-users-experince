@@ -6,6 +6,7 @@ var router = express.Router();
 router.get("/", getComments);
 router.get("/username", getCommentsByUsername);
 router.post("/create", createComment);
+router.delete("/:id", removeComment);
 
 module.exports = router;
 
@@ -64,4 +65,19 @@ function createComment(req, res) {
       });
     }
   })
+}
+
+function removeComment(req ,res) {
+  console.log(req.params.id);
+  Comment.findByIdAndRemove({ _id: req.params.id }, function(err, comment) {
+    if (err) {
+      res.status(500).json({
+        message: err
+      })
+    } else {
+      res.status(200).json({
+        comment: comment
+      })
+    }
+  });
 }
