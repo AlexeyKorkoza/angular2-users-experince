@@ -1,6 +1,6 @@
 var express = require("express");
 var mongoose = require("mongoose");
-var commentModel = require("../models/comment");
+var Comment = require("../models/comment");
 var router = express.Router();
 
 router.get("/", getComments);
@@ -10,7 +10,7 @@ router.post("/create", createComment);
 module.exports = router;
 
 function getComments(req, res) {
-  commentModel.find({}, function (err, comment) {
+  Comment.find({}, function (err, comment) {
     if (err) {
       res.send(err);
     }
@@ -21,7 +21,7 @@ function getComments(req, res) {
 }
 
 function getCommentsByUsername(req, res) {
-  commentModel.find({author: req.query.username}, function(err, comments) {
+  Comment.find({author: req.query.username}, function(err, comments) {
     if(err) {
       res.status(500).json({
         message: err
@@ -44,14 +44,14 @@ function getCommentsByUsername(req, res) {
 
 function createComment(req, res) {
   console.log(req.body);
-  var Comment = {
-    "title": req.body.comment.title,
-    "author": req.body.comment.author,
-    "text": req.body.comment.text,
-    "favorite": req.body.comment.favorite
-  };
+  var comment = new Comment({
+    title: req.body.comment.title,
+    author: req.body.comment.author,
+    text: req.body.comment.text,
+    favorite: req.body.comment.favorite
+  });
 
-  Comment.save(function (err, comment) {
+  comment.save(function (err, comment) {
     if(err) {
       res.status(500).json({
         message: err
@@ -59,7 +59,9 @@ function createComment(req, res) {
     }
 
     if(comment) {
-      res.status(200);
+      res.status(200).json({
+        comment: comment
+      });
     }
   })
 }

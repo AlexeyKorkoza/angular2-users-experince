@@ -32,7 +32,7 @@ export class CommentEditorComponent implements OnInit{
         const parentActivatedRoute = this.route.parent;
         model.author = parentActivatedRoute.snapshot.params['username'];
         model.favorite = 0;
-        this.commentService.createComment(model);
+        this.commentService.createComment(model).subscribe();
     }
 
 }

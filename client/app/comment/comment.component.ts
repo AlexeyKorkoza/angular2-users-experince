@@ -20,6 +20,5 @@ export class CommentComponent implements OnInit{
 
     ngOnInit() {
         this.currentUser = this.authenticationService.getCurrentUser();
-        console.log(this.currentUser);
     }
 }

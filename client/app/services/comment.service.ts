@@ -23,7 +23,7 @@ export class CommentService {
 
     createComment(comment: Comment): Observable<Comment> {
         console.log(comment);
-        return this.http.post(this.appConfig.urlServer + "/comment/create", comment)
+        return this.http.post(this.appConfig.urlServer + "/comment/create", { comment: comment } )
             .map((response: Response) => response.json());
     }
 }
