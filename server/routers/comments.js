@@ -5,6 +5,7 @@ var router = express.Router();
 
 router.get("/", getComments);
 router.get("/username", getCommentsByUsername);
+router.post("/create", createComment);
 
 module.exports = router;
 
@@ -37,6 +38,28 @@ function getCommentsByUsername(req, res) {
       res.status(200).json({
         comments: comments
       })
+    }
+  })
+}
+
+function createComment(req, res) {
+  console.log(req.body);
+  var Comment = {
+    "title": req.body.comment.title,
+    "author": req.body.comment.author,
+    "text": req.body.comment.text,
+    "favorite": req.body.comment.favorite
+  };
+
+  Comment.save(function (err, comment) {
+    if(err) {
+      res.status(500).json({
+        message: err
+      })
+    }
+
+    if(comment) {
+      res.status(200);
     }
   })
 }

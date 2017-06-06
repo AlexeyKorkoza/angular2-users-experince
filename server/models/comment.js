@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var Comment = mongoose.model("Comment", {
   author: String,
-  header: String,
+  title: String,
   text: String,
   favorite: Number
 });

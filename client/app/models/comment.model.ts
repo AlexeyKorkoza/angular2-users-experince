@@ -1,7 +1,7 @@
 export class Comment {
     id: string;
     author: string;
-    header: string;
+    title: string;
     text: string;
     favorite: number;
 }

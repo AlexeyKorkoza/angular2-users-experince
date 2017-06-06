@@ -1,9 +1,13 @@
 <div *ngFor="let comment of comments">
     <div class="col-md-8 col-xs-12">
         <div class="comment">
-            <h1>{{comment.header}}</h1>
+            <h1>{{comment.title}}</h1>
             <p>{{comment.text}}</p>
             <span>{{comment.author}}</span>
+            <div *ngIf="currentUser.username == comment.author">
+                <a routerLink="[]">Edit</a>
+                <a routerLink="[]">Delete</a>
+            </div>
         </div>
     </div>
 </div>

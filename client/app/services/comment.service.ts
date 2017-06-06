@@ -1,27 +1,29 @@
 import { Injectable } from "@angular/core";
-import { Http, Response } from "@angular/http";
+import {Http, Response } from "@angular/http";
+import 'rxjs/add/operator/map';
+import {Observable} from "rxjs";
 
 import { AppConfig } from "../app.config";
 import { Comment } from "../models/comment.model";
-import { Observable } from "rxjs/Rx";
-import 'rxjs/add/operator/map';
 
 @Injectable()
 export class CommentService {
 
-    comments: Comment[] = [];
-
     constructor(private http: Http, private appConfig: AppConfig) { }
 
     getComments() {
-        return this.http.get(this.appConfig.urlServer + "/")
-            .map(
-            (res: Response) => res.json()
-            );
+        return this.http.get(this.appConfig.urlServer + "/comment")
+            .map((res: Response) => res.json());
     }
 
     getCommentByUsername(username: string) {
-        return this.http.get(this.appConfig.urlServer + '/username', { params: { username: username } })
+        return this.http.get(this.appConfig.urlServer + '/comment/username', { params: { username: username } })
+            .map((response: Response) => response.json());
+    }
+
+    createComment(comment: Comment): Observable<Comment> {
+        console.log(comment);
+        return this.http.post(this.appConfig.urlServer + "/comment/create", comment)
             .map((response: Response) => response.json());
     }
 }
