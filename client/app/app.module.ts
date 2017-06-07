@@ -13,8 +13,10 @@ import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from "./footer/footer.component";
 import { OverViewProfileComponent } from "./profile/overview-profile.component";
 import { EditProfileComponent } from "./profile/edit-profile.component";
-import { ProfileCommentsComponent } from "./profile/profile-comments.component";
+import { CommentUserComponent } from "./comment/comment-user.component";
 import { HomeComponent } from "./home/home.component";
+import { CommentEditorComponent } from "./comment/comment-editor.component";
+import { CommentUserViewComponent } from "./comment/comment-user-view.component";
 
 import { CommentService } from './services/comment.service';
 import { AuthenticationService } from './services/authentication.service';
@@ -45,8 +47,10 @@ import { routing } from './app.routing';
         FooterComponent,
         OverViewProfileComponent,
         EditProfileComponent,
-        ProfileCommentsComponent,
+        CommentUserComponent,
+        CommentUserViewComponent,
         HomeComponent,
+        CommentEditorComponent,
         ShowAuthedDirective
     ],
     providers: [

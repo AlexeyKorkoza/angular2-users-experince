@@ -19,7 +19,6 @@ export class HomeComponent implements OnInit {
     ngOnInit() {
         this.userService.getLastFiveUser().subscribe(
             (data) => {
-                console.log(data);
                 this.users = data.users;
             }
         )
