@@ -21,7 +21,8 @@ const appRoutes: Routes = [
     { path: 'comments/:username', component: CommentUserComponent,
         children: [
           { path: '', component: CommentUserViewComponent },
-          { path: 'create', component: CommentEditorComponent }
+          { path: 'create', component: CommentEditorComponent },
+          { path: 'edit/:id', component: CommentEditorComponent }
         ]
     },
 ];

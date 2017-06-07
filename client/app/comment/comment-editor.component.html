@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Create new comment</h1>
+    <h1>{{text}} comment</h1>
     <form [formGroup]="editorForm">
         <div class="form-group"
              [ngClass]="{'has-error':!editorForm.controls['title'].valid && editorForm.controls['title'].touched}">
@@ -20,8 +20,8 @@
             </div>
         </div>
         <div class="form-group">
-            <button type="submit" (click)="create(editorForm.value)" [disabled]="!editorForm.valid"
-                    class="btn btn-default">Create
+            <button type="submit" (click)="save(editorForm.value)" [disabled]="!editorForm.valid"
+                    class="btn btn-default">{{textButton}}
             </button>
             <a [routerLink]="['/']" class="btn btn-default">Back</a>
         </div>

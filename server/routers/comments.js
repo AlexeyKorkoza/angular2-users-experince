@@ -5,7 +5,9 @@ var router = express.Router();
 
 router.get("/", getComments);
 router.get("/username", getCommentsByUsername);
+router.get("/:id", getCommentById);
 router.post("/create", createComment);
+router.put("/:id", updateComment);
 router.delete("/:id", removeComment);
 
 module.exports = router;
@@ -43,8 +45,24 @@ function getCommentsByUsername(req, res) {
   })
 }
 
+function getCommentById(req, res) {
+  Comment.findOne({ _id: req.params.id }, function (err, comment) {
+    if (err) {
+      res.status(500).json({
+        message: err
+      })
+    }
+
+    if (comment) {
+      res.status(200).json({
+        comment: comment
+      })
+    }
+
+  })
+}
+
 function createComment(req, res) {
-  console.log(req.body);
   var comment = new Comment({
     title: req.body.comment.title,
     author: req.body.comment.author,
@@ -67,8 +85,23 @@ function createComment(req, res) {
   })
 }
 
+function updateComment(req, res) {
+  Comment.findByIdAndUpdate({ _id: req.body.comment._id}, req.body.comment, function (err, comment) {
+    if(err) {
+      res.status(500).json({
+        message: err
+      })
+    }
+
+    if(comment) {
+      res.status(200).json({
+        message: "Comment updated"
+      });
+    }
+  })
+}
+
 function removeComment(req ,res) {
-  console.log(req.params.id);
   Comment.findByIdAndRemove({ _id: req.params.id }, function(err, comment) {
     if (err) {
       res.status(500).json({

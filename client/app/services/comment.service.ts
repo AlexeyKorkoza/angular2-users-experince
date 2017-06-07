@@ -21,10 +21,19 @@ export class CommentService {
             .map((response: Response) => response.json());
     }
 
-    createComment(comment: Comment): Observable<Comment> {
-        console.log(comment);
-        return this.http.post(this.appConfig.urlServer + "/comment/create", { comment: comment } )
+    getCommentById(id: string) {
+        return this.http.get(this.appConfig.urlServer + '/comment/' + id, { params: { id: id } })
             .map((response: Response) => response.json());
+    }
+
+    saveComment(comment: Comment): Observable<Comment> {
+        if(comment._id) {
+            return this.http.put(this.appConfig.urlServer + "/comment/" + comment._id, { comment: comment } )
+                .map((response: Response) => response.json());
+        } else {
+            return this.http.post(this.appConfig.urlServer + "/comment/create", { comment: comment} )
+                .map((response: Response) => response.json());
+        }
     }
 
     removeComment(id: string) {
