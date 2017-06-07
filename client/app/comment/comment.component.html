@@ -4,7 +4,7 @@
             <h1>{{comment.title}}</h1>
             <p>{{comment.text}}</p>
             <span>{{comment.author}}</span>
-            <div *ngIf="currentUser.username == comment.author">
+            <div *ngIf="flag && username == comment.author">
                 <a class="btn btn-default" [routerLink]="['edit', comment._id ]">Edit</a>
                 <button class="btn btn-default" (click)="remove(comment._id, index)">Delete</button>
             </div>

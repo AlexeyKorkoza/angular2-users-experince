@@ -1,10 +1,9 @@
-import { Component, Input, OnInit } from "@angular/core";
+import {Component, Input, OnInit} from "@angular/core";
+import {Router} from '@angular/router';
 
-import { Comment } from "../models/comment.model";
-import { User } from "../models/user.model";
+import {Comment} from "../models/comment.model";
 
-import { CommentService } from "../services/comment.service";
-import { AuthenticationService } from "../services/authentication.service";
+import {CommentService} from "../services/comment.service";
 
 @Component({
     moduleId: module.id,
@@ -12,16 +11,24 @@ import { AuthenticationService } from "../services/authentication.service";
     templateUrl: "comment.component.html"
 })
 
-export class CommentComponent implements OnInit{
+export class CommentComponent implements OnInit {
 
     @Input() comments: Comment [];
-    currentUser: User;
+    flag: boolean = false;
+    username: string;
+    url: any;
 
-    constructor( private authenticationService: AuthenticationService,
-                private commentService: CommentService) { }
+    constructor(private commentService: CommentService,
+                private router: Router) { }
 
     ngOnInit() {
-        this.currentUser = this.authenticationService.getCurrentUser();
+        this.router.events.subscribe((url: any) => {
+            this.url = url.url.split('/');
+            if (this.url.length == 3) {
+                this.username = this.url[2];
+                this.flag = true;
+            }
+        });
     }
 
     remove(id: string, index: number) {

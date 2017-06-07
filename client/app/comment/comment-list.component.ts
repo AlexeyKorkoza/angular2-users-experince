@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import {CommentService} from "../services/comment.service";
-import {Comment} from "../models/comment.model";
+import { CommentService } from "../services/comment.service";
+import { Comment } from "../models/comment.model";
 
 @Component({
     moduleId: module.id,
@@ -12,10 +12,9 @@ import {Comment} from "../models/comment.model";
 
 export class CommentListComponent implements OnInit {
 
-    comments: Comment[];
+    comments: Comment [];
 
-    constructor(private commentService: CommentService) {
-    }
+    constructor(private commentService: CommentService) { }
 
     ngOnInit() {
         this.commentService.getComments().subscribe(
