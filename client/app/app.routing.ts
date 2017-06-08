@@ -8,6 +8,7 @@ import { EditProfileComponent } from "./profile/edit-profile.component";
 import { CommentUserComponent } from "./comment/comment-user.component";
 import { CommentEditorComponent } from "./comment/comment-editor.component";
 import { CommentUserViewComponent } from "./comment/comment-user-view.component";
+import { ProfileStatsComponent } from "./profile/profile-stats.component";
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent },
@@ -15,7 +16,8 @@ const appRoutes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'user/:username', component: OverViewProfileComponent, 
         children: [
-          { path: '', component: EditProfileComponent }
+          { path: '', component: ProfileStatsComponent },
+          { path: 'edit', component: EditProfileComponent }
         ]
     },
     { path: 'comments/:username', component: CommentUserComponent,

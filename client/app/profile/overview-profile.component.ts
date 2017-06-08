@@ -1,8 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-
-import { AuthenticationService } from '../services/authentication.service';
-import { UserService } from "../services/user.service";
+import { Component } from '@angular/core';
 
 @Component({
     moduleId: module.id,
@@ -10,17 +6,5 @@ import { UserService } from "../services/user.service";
     templateUrl: 'overview-profile.component.html'
 })
 
-export class OverViewProfileComponent implements OnInit {
-    constructor(private authenticationService: AuthenticationService,
-        private userService: UserService,
-        private route: ActivatedRoute) { }
-
-    username: string;
-
-    ngOnInit() {
-        this.route.params.subscribe(
-            (data) => {
-                this.username = data.username;
-            })
-    }
+export class OverViewProfileComponent {
 }
