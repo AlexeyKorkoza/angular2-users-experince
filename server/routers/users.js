@@ -74,7 +74,6 @@ function getLastFiveUsers(req, res) {
 
 function getUserStats(req, res) {
 
-  console.log(req.query.username);
   User.findOne({username: req.query.username}, function (err, user) {
 
     if (err) {
