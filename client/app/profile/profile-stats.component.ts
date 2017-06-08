@@ -1,10 +1,10 @@
-import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
+import {Component, OnInit} from "@angular/core";
+import {Router} from "@angular/router";
 
-import { UserStats } from "../models/user-stats.model";
+import {UserStats} from "../models/user-stats.model";
 
-import { UserService } from "../services/user.service";
-import { AuthenticationService } from "../services/authentication.service";
+import {UserService} from "../services/user.service";
+import {AuthenticationService} from "../services/authentication.service";
 
 @Component({
     moduleId: module.id,
@@ -28,20 +28,27 @@ export class ProfileStatsComponent implements OnInit {
         this.router.events.subscribe(
             (url: any) => {
                 this.url = url.url.split("/");
-                let username = this.url[this.url.length - 1];
-                this.userService.getUserByUsername(username).subscribe(
-                    (data) => {
-                        (<any>Object).assign(this.user, data.user);
-                    }
-                );
-                this.authenticationService.currentUser.subscribe(
-                    (data) => {
-                        if (data.username == username) {
-                            this.flag = true;
-                            this.userNameProfile = data.username;
+                if (this.url.length == 3) {
+                    let username = this.url[this.url.length - 1];
+                    this.userService.getUserByUsername(username).subscribe(
+                        (data) => {
+                            (<any>Object).assign(this.user, data.user);
                         }
-                    }
-                );
+                    );
+                    this.authenticationService.currentUser.subscribe(
+                        (data) => {
+                            if (data.username == username) {
+                                this.flag = true;
+                                this.userNameProfile = data.username;
+                            }
+                        }
+                    );
+                    this.userService.getUserStats(username).subscribe(
+                        (data) => {
+                            this.user = data.user;
+                        }
+                    )
+                }
             }
         )
     }

@@ -6,8 +6,7 @@ import { Comment } from "../models/comment.model";
 @Component({
     moduleId: module.id,
     selector: "comment-list",
-    templateUrl: "comment-list.component.html",
-    providers: [CommentService]
+    templateUrl: "comment-list.component.html"
 })
 
 export class CommentListComponent implements OnInit {

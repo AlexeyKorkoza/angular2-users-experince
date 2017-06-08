@@ -2,10 +2,12 @@ var express = require("express");
 var router = express.Router();
 var token = require('./token');
 var User = require("../models/user");
+var Comment = require("../models/comment");
 
 router.get("", token.required, getUser);
 router.get("/edit", getUserByUsername);
 router.get("/last", getLastFiveUsers);
+router.get("/stats", getUserStats);
 router.put("/edit", token.required, updateUser);
 router.post("/register", createUser);
 
@@ -68,6 +70,55 @@ function getLastFiveUsers(req, res) {
         })
       }
     })
+}
+
+function getUserStats(req, res) {
+
+  console.log(req.query.username);
+  User.findOne({username: req.query.username}, function (err, user) {
+
+    if (err) {
+      res.status(500).json({
+        message: err
+      })
+    }
+
+    if (user) {
+      var userStats = {
+        "username": user.username,
+        "date": user.date,
+        "time": user.time
+      };
+    }
+
+    Comment.find({author: req.query.username}, function (err, comments) {
+
+      if (err) {
+        res.status(500).json({
+          message: err
+        })
+      }
+
+      if (comments) {
+
+        var countFavorites = 0;
+        comments.forEach(function (item) {
+          if (item.favorite > 0) {
+            countFavorites += 1;
+          }
+        });
+
+        userStats.count_favorites = countFavorites;
+        userStats.count_comments = comments.length;
+
+        res.status(200).json({
+          user: userStats
+        });
+
+      }
+
+    })
+  })
 }
 
 function updateUser(req, res) {
