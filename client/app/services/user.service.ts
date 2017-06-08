@@ -36,7 +36,7 @@ export class UserService {
     }
 
     getUserStats(username: string) {
-        return this.http.get(this.appConfig.urlServer + '/user/stats', { params: { username: username, stats: "stats" }})
+        return this.http.get(this.appConfig.urlServer + '/user/stats', { params: { username: username } })
             .map((res: Response) => res.json());
     }
 
