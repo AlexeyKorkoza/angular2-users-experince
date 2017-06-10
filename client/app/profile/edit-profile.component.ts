@@ -40,7 +40,6 @@ export class EditProfileComponent implements OnInit {
         (<any>Object).assign(this.user, value);
         this.authenticationService.updateUser(this.user).subscribe(
             data => {
-                console.log(data);
                 this.router.navigate(['']);
             }
         )
