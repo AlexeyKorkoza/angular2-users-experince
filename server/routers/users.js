@@ -132,6 +132,10 @@ function updateUser(req, res) {
       user.password = user.generateHash(req.body.user.password);
     }
 
+    var oldNameOfAuthor = user.username;
+    var newNameOfAuthor = {
+      "author": req.body.user.username
+    }
     user.username = req.body.user.username;
 
     user.save(function (err, user1) {
@@ -140,6 +144,14 @@ function updateUser(req, res) {
           message: err
         })
       } else {
+        Comment.update({ author: oldNameOfAuthor }, newNameOfAuthor, { multi: true}, function(err, comments) {
+          if (err) {
+            return res.status(500).json({
+              message: err
+            })
+          }
+        })
+
         return res.status(200).json({
           user: {
             username: user1.username,
@@ -148,8 +160,7 @@ function updateUser(req, res) {
         })
       }
     })
-
-  })
+})
 }
 
 function createUser(req, res) {
