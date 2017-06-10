@@ -9,6 +9,7 @@ import { CommentUserComponent } from "./comment/comment-user.component";
 import { CommentEditorComponent } from "./comment/comment-editor.component";
 import { CommentUserViewComponent } from "./comment/comment-user-view.component";
 import { ProfileStatsComponent } from "./profile/profile-stats.component";
+import { SearchCommentsComponent } from "./search/search-comments.component";
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent },
@@ -27,6 +28,7 @@ const appRoutes: Routes = [
           { path: 'edit/:id', component: CommentEditorComponent }
         ]
     },
+    { path: 'search', component: SearchCommentsComponent }
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

@@ -18,6 +18,7 @@ import { HomeComponent } from "./home/home.component";
 import { CommentEditorComponent } from "./comment/comment-editor.component";
 import { CommentUserViewComponent } from "./comment/comment-user-view.component";
 import { ProfileStatsComponent } from "./profile/profile-stats.component";
+import { SearchCommentsComponent } from "./search/search-comments.component";
 
 import { CommentService } from './services/comment.service';
 import { AuthenticationService } from './services/authentication.service';
@@ -53,7 +54,8 @@ import { routing } from './app.routing';
         HomeComponent,
         CommentEditorComponent,
         ProfileStatsComponent,
-        ShowAuthedDirective
+        ShowAuthedDirective,
+        SearchCommentsComponent
     ],
     providers: [
         CommentService,
