@@ -30,7 +30,7 @@ function getComments(req, res) {
 }
 
 function getCommentsByUsername(req, res) {
-   Comment.find({author: req.params.username}, function(err, comments) {
+   Comment.find({author: req.query.username}, function(err, comments) {
      if(err) {
        res.status(500).json({
          message: err
