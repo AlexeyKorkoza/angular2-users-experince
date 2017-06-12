@@ -1,0 +1,29 @@
+<div class="container">
+    <h1>{{text}} comment</h1>
+    <form [formGroup]="editorForm">
+        <div class="form-group"
+             [ngClass]="{'has-error':!editorForm.controls['title'].valid && editorForm.controls['title'].touched}">
+            <label><b>Title:</b></label>
+            <input type="text" class="form-control" id="editor-comment-title"
+                   [formControl]="editorForm.controls['title']" placeholder="Title">
+            <div *ngIf="editorForm.controls['title'].hasError('required') && editorForm.controls['title'].touched"
+                 class="alert alert-danger">Input title.
+            </div>
+        </div>
+        <div class="form-group"
+             [ngClass]="{'has-error':!editorForm.controls['text'].valid && editorForm.controls['text'].touched}">
+            <label><b>Text:</b></label>
+            <textarea class="form-control" placeholder="Text" id="editor-comment-text"
+                      [formControl]="editorForm.controls['text']"></textarea>
+            <div *ngIf="editorForm.controls['text'].hasError('required') && editorForm.controls['text'].touched"
+                 class="alert alert-danger">Input text
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" (click)="save(editorForm.value)" [disabled]="!editorForm.valid"
+                    class="btn btn-default">{{textButton}}
+            </button>
+            <a [routerLink]="['/']" class="btn btn-default">Back</a>
+        </div>
+    </form>
+</div>

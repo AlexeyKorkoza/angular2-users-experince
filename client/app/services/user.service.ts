@@ -35,4 +35,14 @@ export class UserService {
             .map((res: Response) => res.json());
     }
 
+    getUserStats(username: string) {
+        return this.http.get(this.appConfig.urlServer + '/user/stats', { params: { username: username } })
+            .map((res: Response) => res.json());
+    }
+
+    getLastFiveUser() {
+        return this.http.get(this.appConfig.urlServer + '/user/last')
+            .map((res: Response) => res.json());
+    }
+
 }

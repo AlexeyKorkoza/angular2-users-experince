@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from "@angular/http";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SelectModule }  from 'ng2-select';
 
 import { AppComponent }   from './app.component';
 import { CommentComponent } from './comment/comment.component';
@@ -13,7 +14,12 @@ import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from "./footer/footer.component";
 import { OverViewProfileComponent } from "./profile/overview-profile.component";
 import { EditProfileComponent } from "./profile/edit-profile.component";
-import { ProfileCommentsComponent } from "./profile/profile-comments.component";
+import { CommentUserComponent } from "./comment/comment-user.component";
+import { HomeComponent } from "./home/home.component";
+import { CommentEditorComponent } from "./comment/comment-editor.component";
+import { CommentUserViewComponent } from "./comment/comment-user-view.component";
+import { ProfileStatsComponent } from "./profile/profile-stats.component";
+import { SearchCommentsComponent } from "./search/search-comments.component";
 
 import { CommentService } from './services/comment.service';
 import { AuthenticationService } from './services/authentication.service';
@@ -32,6 +38,7 @@ import { routing } from './app.routing';
         FormsModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,
+        SelectModule,
         routing
     ],
     declarations: [
@@ -44,8 +51,13 @@ import { routing } from './app.routing';
         FooterComponent,
         OverViewProfileComponent,
         EditProfileComponent,
-        ProfileCommentsComponent,
-        ShowAuthedDirective
+        CommentUserComponent,
+        CommentUserViewComponent,
+        HomeComponent,
+        CommentEditorComponent,
+        ProfileStatsComponent,
+        ShowAuthedDirective,
+        SearchCommentsComponent
     ],
     providers: [
         CommentService,
