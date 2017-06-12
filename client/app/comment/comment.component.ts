@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from "@angular/core";
 import {Router} from '@angular/router';
-import {Location} from "@angular/common";
 
 import {Comment} from "../models/comment.model";
 
@@ -20,8 +19,7 @@ export class CommentComponent implements OnInit {
     url: any;
 
     constructor(private commentService: CommentService,
-                private router: Router,
-                private location: Location) { }
+                private router: Router) { }
 
     ngOnInit() {
         this.router.events.subscribe((url: any) => {
