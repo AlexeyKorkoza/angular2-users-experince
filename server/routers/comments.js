@@ -5,9 +5,11 @@ var router = express.Router();
 
 router.get("/", getComments);
 router.get("/username", getCommentsByUsername);
-router.get("/:id", getCommentById);
+router.get("/edit/:id", getCommentById);
+router.get("/authors", getAuthorsOfComments);
+router.post("/search", searchComments);
 router.post("/create", createComment);
-router.put("/:id", updateComment);
+router.put("/edit/:id", updateComment);
 router.delete("/:id", removeComment);
 
 module.exports = router;
@@ -15,51 +17,109 @@ module.exports = router;
 function getComments(req, res) {
   Comment.find({}, function (err, comment) {
     if (err) {
-      res.send(err);
+      res.status(500).json({
+        message: err
+      });
     }
     if (comment) {
-      res.json(comment);
+      res.status(200).json({
+        comments: comment
+      });
     }
   })
 }
 
 function getCommentsByUsername(req, res) {
-  Comment.find({author: req.query.username}, function(err, comments) {
-    if(err) {
-      res.status(500).json({
-        message: err
-      })
-    }
+   Comment.find({author: req.params.username}, function(err, comments) {
+     if(err) {
+       res.status(500).json({
+         message: err
+       })
+     }
 
-    if(comments.length === 0) {
-      res.status(200).json({
-        message: "Comments foundn't"
-      })
-    }
+     if(comments.length === 0) {
+       res.status(200).json({
+         message: "Comments foundn't"
+       })
+     }
 
-    if(comments.length > 0) {
-      res.status(200).json({
-        comments: comments
-      })
-    }
-  })
+     if(comments.length > 0) {
+       res.status(200).json({
+         comments: comments
+       })
+     }
+   })
 }
 
 function getCommentById(req, res) {
-  Comment.findOne({ _id: req.params.id }, function (err, comment) {
+   Comment.findOne({ _id: req.params.id }, function (err, comment) {
+     if (err) {
+       res.status(500).json({
+         message: err
+       })
+     }
+
+     if (comment) {
+       res.status(200).json({
+         comment: comment
+       })
+     }
+
+   })
+}
+
+function getAuthorsOfComments(req, res) {
+  Comment.find({}, { author: 1 }, function(err, authors) {
     if (err) {
       res.status(500).json({
         message: err
       })
     }
 
-    if (comment) {
+    if (authors) {
       res.status(200).json({
-        comment: comment
+        authors: authors
       })
     }
-
   })
+}
+
+function searchComments(req, res) {
+  var query = {};
+
+  if (req.body.comment.author && req.body.comment.author.length === 1) {
+    query.author = req.body.comment.author[0].text;
+  }
+
+  if (req.body.comment.text) {
+    query.text = req.body.comment.text;
+  }
+
+  if (req.body.comment.title) {
+    query.title = req.body.comment.title;
+  }
+
+  console.log(query);
+  if(Object.keys(query).length > 0) {
+    Comment.find(query).then(function(comments) {
+      console.log(comments);
+    if (comments) {
+      res.status(200).json({
+        comments: comments
+      })
+    }
+    }).catch(function(err) {
+    if (err) {
+      res.status(500).json({
+        message: err
+      })
+    }
+  }) 
+  } else {
+    res.status(200).json({
+        not_found: "Comments found not"
+    })
+  }
 }
 
 function createComment(req, res) {
