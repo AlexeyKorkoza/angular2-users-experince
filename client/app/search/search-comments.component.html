@@ -3,19 +3,22 @@
     <form>
         <div class="form-group">
             <label><b>Author:</b></label>
-            <input type="text" class="form-control" name="author" placeholder="Author" [(ngModel)]="search.author" #searchAuthor="ngModel">
+            <ng-select [allowClear]="false" name="author" [(ngModel)]="comment.author" #commentAuthor="ngModel" [items]="authors" placeholder="Username">
+            </ng-select>
         </div>
         <div class="form-group">
             <label><b>Title:</b></label>
-            <input type="text" class="form-control" name="title" placeholder="Title" [(ngModel)]="search.title" #searchTitle="ngModel">
+            <input type="text" class="form-control" name="title" placeholder="Title" [(ngModel)]="comment.title" #commentTitle="ngModel">
         </div>
         <div class="form-group">
             <label><b>Text:</b></label>
-            <textarea class="form-control" name="title" placeholder="Text" [(ngModel)]="search.text" #searchText="ngModel"></textarea>
+            <textarea class="form-control" name="title" placeholder="Text" [(ngModel)]="comment.text" #commentText="ngModel"></textarea>
         </div>
+        <p class="message">{{message}}</p>
         <div class="form-group">
-            <button type="submit" (click)="search(search)" class="btn btn-default">Search</button>
+            <button type="submit" (click)="search()" class="btn btn-default">Search</button>
             <a [routerLink]="['/']" class="btn btn-default">Back</a>
         </div>
     </form>
+    <comment [comments]="comments"></comment>
 </div>

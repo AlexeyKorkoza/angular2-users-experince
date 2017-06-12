@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from "@angular/http";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SelectModule }  from 'ng2-select';
 
 import { AppComponent }   from './app.component';
 import { CommentComponent } from './comment/comment.component';
@@ -37,6 +38,7 @@ import { routing } from './app.routing';
         FormsModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,
+        SelectModule,
         routing
     ],
     declarations: [

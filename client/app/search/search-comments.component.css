@@ -2,3 +2,8 @@ textarea {
     resize: none;
     height: 100px;
 }
+
+.message {
+    font: 14pt 'Source Sans Pro', sans-serif;
+    color: red;
+}
