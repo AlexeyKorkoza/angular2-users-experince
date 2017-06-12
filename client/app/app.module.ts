@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from "@angular/http";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SelectModule }  from 'ng2-select';
 
 import { AppComponent }   from './app.component';
 import { CommentComponent } from './comment/comment.component';
@@ -18,6 +19,7 @@ import { HomeComponent } from "./home/home.component";
 import { CommentEditorComponent } from "./comment/comment-editor.component";
 import { CommentUserViewComponent } from "./comment/comment-user-view.component";
 import { ProfileStatsComponent } from "./profile/profile-stats.component";
+import { SearchCommentsComponent } from "./search/search-comments.component";
 
 import { CommentService } from './services/comment.service';
 import { AuthenticationService } from './services/authentication.service';
@@ -36,6 +38,7 @@ import { routing } from './app.routing';
         FormsModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,
+        SelectModule,
         routing
     ],
     declarations: [
@@ -53,7 +56,8 @@ import { routing } from './app.routing';
         HomeComponent,
         CommentEditorComponent,
         ProfileStatsComponent,
-        ShowAuthedDirective
+        ShowAuthedDirective,
+        SearchCommentsComponent
     ],
     providers: [
         CommentService,

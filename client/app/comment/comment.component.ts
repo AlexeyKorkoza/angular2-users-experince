@@ -35,4 +35,14 @@ export class CommentComponent implements OnInit {
         this.commentService.removeComment(id).subscribe();
         this.comments.splice(index, 1);
     }
+
+    view(index: Number) {
+        let author = "";
+        this.comments.forEach(function(item,i) {
+            if (index == i ) {
+                author = item.author;    
+            }
+        })
+        this.router.navigateByUrl('/user/'+ author);
+    }
 }
