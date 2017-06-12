@@ -99,10 +99,8 @@ function searchComments(req, res) {
     query.title = req.body.comment.title;
   }
 
-  console.log(query);
   if(Object.keys(query).length > 0) {
     Comment.find(query).then(function(comments) {
-      console.log(comments);
     if (comments) {
       res.status(200).json({
         comments: comments
