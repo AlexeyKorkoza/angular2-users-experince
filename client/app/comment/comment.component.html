@@ -8,7 +8,7 @@
                 <a class="btn btn-default" [routerLink]="['edit', comment._id ]">Edit</a>
                 <button class="btn btn-default" (click)="remove(comment._id, index)">Delete</button>
             </div>
-            <a [routerLink]="['user', comment.author]">View Profile</a>
+            <a (click)="view(index)">View Profile</a>
         </div>
     </div>
 </div>

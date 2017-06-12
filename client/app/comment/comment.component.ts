@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from "@angular/core";
 import {Router} from '@angular/router';
+import {Location} from "@angular/common";
 
 import {Comment} from "../models/comment.model";
 
@@ -19,7 +20,8 @@ export class CommentComponent implements OnInit {
     url: any;
 
     constructor(private commentService: CommentService,
-                private router: Router) { }
+                private router: Router,
+                private location: Location) { }
 
     ngOnInit() {
         this.router.events.subscribe((url: any) => {
@@ -34,5 +36,15 @@ export class CommentComponent implements OnInit {
     remove(id: string, index: number) {
         this.commentService.removeComment(id).subscribe();
         this.comments.splice(index, 1);
+    }
+
+    view(index: Number) {
+        let author = "";
+        this.comments.forEach(function(item,i) {
+            if (index == i ) {
+                author = item.author;    
+            }
+        })
+        this.router.navigateByUrl('/user/'+ author);
     }
 }
