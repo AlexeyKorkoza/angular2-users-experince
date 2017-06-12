@@ -83,7 +83,7 @@ function getUserStats(req, res) {
     }
 
     if (user) {
-      var userStats = {
+      var UserData = {
         "username": user.username,
         "date": user.date,
         "time": user.time
@@ -100,18 +100,10 @@ function getUserStats(req, res) {
 
       if (comments) {
 
-        var countFavorites = 0;
-        comments.forEach(function (item) {
-          if (item.favorite > 0) {
-            countFavorites += 1;
-          }
-        });
-
-        userStats.count_favorites = countFavorites;
-        userStats.count_comments = comments.length;
+        UserData.count_comments = comments.length;
 
         res.status(200).json({
-          user: userStats
+          user: UserData
         });
 
       }

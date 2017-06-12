@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
 
-import {UserStats} from "../models/user-stats.model";
+import {User} from "../models/user.model";
 
 import {UserService} from "../services/user.service";
 import {AuthenticationService} from "../services/authentication.service";
@@ -14,7 +14,7 @@ import {AuthenticationService} from "../services/authentication.service";
 
 export class ProfileStatsComponent implements OnInit {
 
-    user: UserStats = new UserStats();
+    user: User = new User();
     flag: boolean = false;
     url: any;
     userNameProfile: string;

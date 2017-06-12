@@ -124,8 +124,7 @@ function createComment(req, res) {
   var comment = new Comment({
     title: req.body.comment.title,
     author: req.body.comment.author,
-    text: req.body.comment.text,
-    favorite: req.body.comment.favorite
+    text: req.body.comment.text
   });
 
   comment.save(function (err, comment) {
