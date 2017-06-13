@@ -159,7 +159,7 @@ function createUser(req, res) {
   var user = new User({
     username: req.body.username,
     time: req.body.time,
-    date: req.body.time,
+    date: req.body.date,
     email: req.body.email
   });
 
