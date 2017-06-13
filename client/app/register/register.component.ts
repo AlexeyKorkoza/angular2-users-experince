@@ -35,8 +35,8 @@ export class RegisterComponent {
             this.password_check = "Пароли не совпадают";
         } else {
             let date = new Date();
-            let current_date = date.getDay() + "." + date.getMonth() + "." + date.getFullYear();
-            let time = date.getHours() + "." + date.getMinutes() + "." + date.getSeconds();
+            let current_date = date.getDate() + "." + (date.getMonth() + 1) + "." + date.getFullYear();
+            let time = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
             value.time = time;
             value.date = current_date;
             this.userService.create(value).subscribe(
