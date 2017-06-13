@@ -1,28 +1,37 @@
-.footer-copyright {
+footer {
     background: #66ff66;
-    position: fixed;
-    bottom: 0;
+    position: relative;
     width: 100%;
+    overflow: hidden;
     padding: 20px 0;
+    margin-top: 20px;
 }
 
-.footer-copyright p {
+footer .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+footer .container p {
     font: 16pt 'Source Sans Pro', sans-serif;
     text-align: center;
     color: white;
 }
 
-.footer-copyright .footer-icons {
+footer .container .footer-icons {
     margin: 0 auto;
     display: table;
 }
 
-.footer-copyright .github i{
+footer .container .github i{
     -webkit-transition: -webkit-transform 0.4s; 
     transition: transform 0.4s;
 }
 
-.footer-copyright .github i:hover {
+footer .container .github i:hover {
     color: white;
     transform: rotate(360deg);
     -webkit-transform: rotate(360deg);
