@@ -1,6 +1,6 @@
 .footer-copyright {
     background: #66ff66;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     padding: 20px 0;
