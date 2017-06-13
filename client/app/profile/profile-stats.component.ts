@@ -1,5 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 import {User} from "../models/user.model";
 
@@ -20,36 +20,31 @@ export class ProfileStatsComponent implements OnInit {
     userNameProfile: string;
 
     constructor(private router: Router,
+                private route: ActivatedRoute,
                 private userService: UserService,
                 private authenticationService: AuthenticationService) {
     }
 
     ngOnInit() {
-        this.router.events.subscribe(
-            (url: any) => {
-                this.url = url.url.split("/");
-                if (this.url.length == 3) {
-                    let username = this.url[this.url.length - 1];
-                    this.userService.getUserByUsername(username).subscribe(
-                        (data) => {
-                            (<any>Object).assign(this.user, data.user);
-                        }
-                    );
-                    this.authenticationService.currentUser.subscribe(
-                        (data) => {
-                            if (data.username == username) {
-                                this.flag = true;
-                                this.userNameProfile = data.username;
-                            }
-                        }
-                    );
-                    this.userService.getUserStats(username).subscribe(
-                        (data) => {
-                            this.user = data.user;
-                        }
-                    )
+        let username = this.route.snapshot.parent.params['username'];
+        this.userService.getUserByUsername(username).subscribe(
+            (data) => {
+                (<any>Object).assign(this.user, data.user);
+            }
+        );
+        this.authenticationService.currentUser.subscribe(
+            (data) => {
+                if (data.username == username) {
+                    this.flag = true;
+                    this.userNameProfile = data.username;
                 }
+            }
+        );
+        this.userService.getUserStats(username).subscribe(
+            (data) => {
+                this.user = data.user;
             }
         )
     }
+
 }
