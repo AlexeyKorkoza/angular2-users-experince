@@ -1,30 +1,28 @@
-<div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-sm-6 col-lg-3">
-            <h1>User's stats</h1>
-            <table class="table rank">
-                <tbody>
-                <tr>
-                    <td class="col-md-3">Username</td>
-                    <td>{{user.username}}</td>
-                </tr>
-                <tr>
-                    <td class="col-md-3">Date joined</td>
-                    <td>{{user.date}}</td>
-                </tr>
-                <tr>
-                    <td class="col-md-3">Time joined</td>
-                    <td>{{user.time}}</td>
-                </tr>
-                <tr>
-                    <td class="col-md-3">Count comments</td>
-                    <td>{{user.count_comments}}</td>
-                </tr>
-                </tbody>
-            </table>
-            <div *ngIf="flag">
-                <a class="btn btn-default" [routerLink]="['/user', userNameProfile, 'edit']">Edit profile</a>
-            </div>
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-lg-3">
+        <h1>User's stats</h1>
+        <table class="table rank">
+            <tbody>
+            <tr>
+                <td class="col-md-3">Username</td>
+                <td>{{user.username}}</td>
+            </tr>
+            <tr>
+                <td class="col-md-3">Date joined</td>
+                <td>{{user.date}}</td>
+            </tr>
+            <tr>
+                <td class="col-md-3">Time joined</td>
+                <td>{{user.time}}</td>
+            </tr>
+            <tr>
+                <td class="col-md-3">Count comments</td>
+                <td>{{user.count_comments}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <div *ngIf="flag">
+            <a class="btn btn-default" [routerLink]="['/user', userNameProfile, 'edit']">Edit profile</a>
         </div>
     </div>
 </div>
