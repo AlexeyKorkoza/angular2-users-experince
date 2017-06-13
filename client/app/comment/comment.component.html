@@ -1,14 +1,24 @@
 <div *ngFor="let comment of comments; let index = index">
-    <div class="col-md-8 col-xs-12">
         <div class="comment">
-            <h1>{{comment.title}}</h1>
-            <p>{{comment.text}}</p>
-            <span>{{comment.author}}</span>
-            <div *ngIf="flag && username == comment.author">
-                <a class="btn btn-default" [routerLink]="['edit', comment._id ]">Edit</a>
-                <button class="btn btn-default" (click)="remove(comment._id, index)">Delete</button>
+            <div class="title">
+                <h1>{{comment.title}}</h1>
+                <div *ngIf="flag && username == comment.author">
+                    <div class="actions">
+                        <a class="btn btn-primary" [routerLink]="['edit', comment._id ]">Edit</a>
+                        <button class="btn btn-danger" (click)="remove(comment._id, index)">Delete</button>
+                    </div>
+                </div>
             </div>
-            <a (click)="view(index)">View Profile</a>
+            <div class="text">
+                <p>{{comment.text}}</p>
+            </div>
+            <div class="about_user">
+                <div class="author">
+                    <p>{{comment.author}}</p>
+                </div>
+                <div class="view_profile">
+                    <a class="btn btn-success" (click)="view(index)">View Profile</a>
+                </div>
+            </div>
         </div>
-    </div>
 </div>
