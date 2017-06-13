@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from "@angular/core";
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 import {Comment} from "../models/comment.model";
 
@@ -19,16 +19,15 @@ export class CommentComponent implements OnInit {
     url: any;
 
     constructor(private commentService: CommentService,
-                private router: Router) { }
+                private router: Router,
+                private route: ActivatedRoute) {
+    }
 
     ngOnInit() {
-        this.router.events.subscribe((url: any) => {
-            this.url = url.url.split('/');
-            if (this.url.length == 3) {
-                this.username = this.url[2];
-                this.flag = true;
-            }
-        });
+        this.username = this.route.snapshot.params['username'];
+        if (this.username) {
+            this.flag = true;
+        }
     }
 
     remove(id: string, index: number) {
@@ -38,11 +37,11 @@ export class CommentComponent implements OnInit {
 
     view(index: Number) {
         let author = "";
-        this.comments.forEach(function(item,i) {
-            if (index == i ) {
-                author = item.author;    
+        this.comments.forEach(function (item, i) {
+            if (index == i) {
+                author = item.author;
             }
-        })
-        this.router.navigateByUrl('/user/'+ author);
+        });
+        this.router.navigateByUrl('/user/' + author);
     }
 }
