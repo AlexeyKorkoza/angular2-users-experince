@@ -2,9 +2,9 @@
   margin: 20px 0;
   padding: 20px;
   border: 2px solid #66ff66;
-  border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
+  border-radius: 5px;
 }
 
 .comment .text p {
@@ -21,6 +21,7 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
+  -moz-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
 }
