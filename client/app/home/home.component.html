@@ -5,11 +5,10 @@
         </div>
         <div class="col-lg-4 col-xs-12">
             <div class="sidebar">
-                <p>Last five registered users</p>
+                <h1><b>Last five registered users</b></h1>
                 <div>
                     <div *ngFor="let user of users">
-                        <p>{{user.username}}</p>
-                        <p>{{user.email}}</p>
+                        <a [routerLink]="['/user/' + user.username]">{{user.username}}</a>
                     </div>
                 </div>
             </div>
