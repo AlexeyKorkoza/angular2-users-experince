@@ -1,19 +1,19 @@
 footer {
     background: #66ff66;
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    padding: 20px 0;
     margin-top: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 5px 0;
 }
 
-footer .container {
+/*footer .container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
     flex-direction: column;
-}
+}*/
 
 footer .container p {
     font: 16pt 'Source Sans Pro', sans-serif;
