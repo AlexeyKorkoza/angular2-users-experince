@@ -7,14 +7,6 @@ footer {
     padding: 5px 0;
 }
 
-/*footer .container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-}*/
-
 footer .container p {
     font: 16pt 'Source Sans Pro', sans-serif;
     text-align: center;
