@@ -1,6 +1,7 @@
 import {OnInit, Component} from "@angular/core";
 import {FormBuilder, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 
 import {Comment} from "../models/comment.model";
 import {CommentService} from "../services/comment.service";
@@ -22,7 +23,8 @@ export class CommentEditorComponent implements OnInit {
 
     constructor(private commentService: CommentService,
                 private formBuilder: FormBuilder,
-                private router: Router) {
+                private router: Router,
+                private slimLoadingBarService: SlimLoadingBarService) {
         this.editorForm = formBuilder.group({
             "title": [null, Validators.required],
             "text": [null, Validators.required]
@@ -31,6 +33,7 @@ export class CommentEditorComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.slimLoadingBarService.start();
         if (this.url.length === 5) {
             this.text = "Edit";
             this.textButton = "Update";
@@ -45,11 +48,14 @@ export class CommentEditorComponent implements OnInit {
             this.text = "Create new";
             this.textButton = "Create";
         }
+        this.slimLoadingBarService.complete();
     }
 
     save(model: any) {
+        this.slimLoadingBarService.start();
         (<any>Object).assign(this.comment, model);
         this.commentService.saveComment(this.comment).subscribe();
+        this.slimLoadingBarService.complete();
         this.router.navigateByUrl('/comments/' + this.url[2]);
     }
 

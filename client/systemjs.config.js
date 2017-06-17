@@ -26,6 +26,7 @@
       '@angular/http/testing': 'npm:@angular/http/bundles/http-testing.umd.js',
       '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
+      'ng2-slim-loading-bar': 'node_modules/ng2-slim-loading-bar/bundles/index.umd.js',
 
       // other libraries
       'rxjs': 'npm:rxjs',

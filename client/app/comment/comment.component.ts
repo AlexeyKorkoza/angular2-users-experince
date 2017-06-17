@@ -8,7 +8,8 @@ import {CommentService} from "../services/comment.service";
 @Component({
     moduleId: module.id,
     selector: "comment",
-    templateUrl: "comment.component.html"
+    templateUrl: "comment.component.html",
+    styleUrls: ["comment.component.css"]
 })
 
 export class CommentComponent implements OnInit {

@@ -1,28 +1,29 @@
-.footer-copyright {
+footer {
     background: #66ff66;
+    margin-top: 20px;
     position: absolute;
     bottom: 0;
     width: 100%;
-    padding: 20px 0;
+    padding: 5px 0;
 }
 
-.footer-copyright p {
+footer .container p {
     font: 16pt 'Source Sans Pro', sans-serif;
     text-align: center;
     color: white;
 }
 
-.footer-copyright .footer-icons {
+footer .container .footer-icons {
     margin: 0 auto;
     display: table;
 }
 
-.footer-copyright .github i{
+footer .container .github i{
     -webkit-transition: -webkit-transform 0.4s; 
     transition: transform 0.4s;
 }
 
-.footer-copyright .github i:hover {
+footer .container .github i:hover {
     color: white;
     transform: rotate(360deg);
     -webkit-transform: rotate(360deg);

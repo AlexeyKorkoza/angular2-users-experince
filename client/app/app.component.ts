@@ -6,9 +6,10 @@ import { AuthenticationService } from './services/authentication.service';
 import { User } from './models/user.model';
 
 @Component({
+    moduleId: module.id,
     selector: 'app',
-    templateUrl: 'app/app.component.html',
-    styleUrls: ['../style.css']
+    templateUrl: 'app.component.html',
+    styleUrls: ['app.component.css']
 })
 
 export class AppComponent implements OnInit {
