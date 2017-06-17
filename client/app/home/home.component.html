@@ -6,10 +6,8 @@
         <div class="col-lg-4 col-xs-12">
             <div class="sidebar">
                 <h1><b>Last five registered users</b></h1>
-                <div>
-                    <div *ngFor="let user of users">
-                        <a [routerLink]="['/user/' + user.username]">{{user.username}}</a>
-                    </div>
+                <div *ngFor="let user of users; let index = index">
+                    <a (click)="viewProfile(index)">{{user.username}}</a>
                 </div>
             </div>
         </div>
