@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 
 import {Comment} from "../models/comment.model";
 
+import {AuthenticationService} from "../services/authentication.service";
 import {CommentService} from "../services/comment.service";
 
 @Component({
@@ -17,9 +18,11 @@ export class CommentComponent implements OnInit {
     @Input() comments: Comment [];
     flag: boolean = false;
     username: string;
+    isAuthenticated: boolean;
     url: any;
 
     constructor(private commentService: CommentService,
+                private authenticationService: AuthenticationService,
                 private router: Router,
                 private route: ActivatedRoute) {
     }
@@ -29,6 +32,11 @@ export class CommentComponent implements OnInit {
         if (this.username) {
             this.flag = true;
         }
+        this.authenticationService.isAuthenticated.subscribe(
+            (authenticated) => {
+                this.isAuthenticated = authenticated;
+            }
+        )
     }
 
     remove(id: string, index: number) {
@@ -37,12 +45,17 @@ export class CommentComponent implements OnInit {
     }
 
     view(index: Number) {
-        let author = "";
-        this.comments.forEach(function (item, i) {
-            if (index == i) {
-                author = item.author;
-            }
-        });
-        this.router.navigateByUrl('/user/' + author);
+        if (this.isAuthenticated) {
+            let author = "";
+
+            this.comments.forEach(function (item, i) {
+                if (index == i) {
+                    author = item.author;
+                }
+            });
+            this.router.navigateByUrl('/user/' + author);
+        } else {
+            this.router.navigateByUrl('/login');
+        }
     }
 }
