@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { UserService } from "../services/user.service";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 
 @Component({
     moduleId: module.id,
@@ -19,7 +20,8 @@ export class RegisterComponent {
     constructor(
         private userService: UserService,
         private router: Router,
-        private formBuilder: FormBuilder) {
+        private formBuilder: FormBuilder,
+        private slimLoadingBarService: SlimLoadingBarService) {
         this.registerForm = formBuilder.group({
             'username': [null, Validators.required],
             'email': [null, Validators.required],
@@ -29,6 +31,7 @@ export class RegisterComponent {
     }
 
     register(value: any) {
+        this.slimLoadingBarService.start();
         this.message = "";
         this.password_check = "";
         if (value.password != value.confirm_password) {
@@ -40,10 +43,11 @@ export class RegisterComponent {
             value.time = time;
             value.date = current_date;
             this.userService.create(value).subscribe(
-                data => {
+                () => {
                     this.router.navigate(['/']);
                 }
                 )
         }
+        this.slimLoadingBarService.complete();
     }
 }
