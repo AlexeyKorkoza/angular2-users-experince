@@ -4,6 +4,7 @@ import { HttpModule } from "@angular/http";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SelectModule }  from 'ng2-select';
+import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 
 import { AppComponent }   from './app.component';
 import { CommentComponent } from './comment/comment.component';
@@ -39,6 +40,7 @@ import { routing } from './app.routing';
         ReactiveFormsModule,
         BrowserAnimationsModule,
         SelectModule,
+        SlimLoadingBarModule.forRoot(),
         routing
     ],
     declarations: [

@@ -114,9 +114,7 @@ function searchComments(req, res) {
     }
   }) 
   } else {
-    res.status(200).json({
-        not_found: "Comments found not"
-    })
+    res.status(200).json("Comments found not");
   }
 }
 
