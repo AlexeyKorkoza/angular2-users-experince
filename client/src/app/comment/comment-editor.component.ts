@@ -10,7 +10,7 @@ import {CommentService} from "../services/comment.service";
     moduleId: module.id,
     selector: "comment-editor",
     templateUrl: "comment-editor.component.html",
-    styleUrls: ["./comment-editor.component.css"]
+    styleUrls: ["comment-editor.component.css"]
 })
 
 export class CommentEditorComponent implements OnInit {
