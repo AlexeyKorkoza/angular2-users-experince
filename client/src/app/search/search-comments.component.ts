@@ -6,10 +6,9 @@ import { Comment } from "../models/comment.model";
 import { CommentService } from "../services/comment.service";
 
 @Component({
-    moduleId: module.id,
     selector: 'search-component',
-    templateUrl: 'search-comments.component.html',
-    styleUrls: ['search-comments.component.css']
+    templateUrl: './search-comments.component.html',
+    styleUrls: ['./search-comments.component.css']
 })
 
 export class SearchCommentsComponent implements OnInit {

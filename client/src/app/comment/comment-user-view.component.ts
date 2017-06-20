@@ -6,9 +6,8 @@ import { Comment } from "../models/comment.model";
 import { CommentService } from "../services/comment.service";
 
 @Component({
-    moduleId: module.id,
     selector: 'comment-user-view',
-    templateUrl: 'comment-user-view.component.html'
+    templateUrl: './comment-user-view.component.html'
 })
 export class CommentUserViewComponent implements OnInit {
 

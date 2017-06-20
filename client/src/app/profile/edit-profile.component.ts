@@ -8,9 +8,8 @@ import { AuthenticationService } from "../services/authentication.service";
 import { User } from "../models/user.model";
 
 @Component({
-    moduleId: module.id,
     selector: 'edit-profile',
-    templateUrl: 'edit-profile.component.html'
+    templateUrl: './edit-profile.component.html'
 })
 
 export class EditProfileComponent implements OnInit {

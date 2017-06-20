@@ -7,9 +7,8 @@ import {UserService} from "../services/user.service";
 import {AuthenticationService} from "../services/authentication.service";
 
 @Component({
-    moduleId: module.id,
     selector: "profile-stats",
-    templateUrl: "profile-stats.component.html"
+    templateUrl: "./profile-stats.component.html"
 })
 
 export class ProfileStatsComponent implements OnInit {

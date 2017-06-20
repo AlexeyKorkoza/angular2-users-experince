@@ -7,10 +7,9 @@ import {AuthenticationService} from "../services/authentication.service";
 import {CommentService} from "../services/comment.service";
 
 @Component({
-    moduleId: module.id,
     selector: "comment",
-    templateUrl: "comment.component.html",
-    styleUrls: ["comment.component.css"]
+    templateUrl: "./comment.component.html",
+    styleUrls: ["./comment.component.css"]
 })
 
 export class CommentComponent implements OnInit {
@@ -18,7 +17,7 @@ export class CommentComponent implements OnInit {
     @Input() comments: Comment [];
     flag: boolean = false;
     username: string;
-    isAuthenticated: boolean;
+    isAuthenticated: any;
     url: any;
 
     constructor(private commentService: CommentService,
