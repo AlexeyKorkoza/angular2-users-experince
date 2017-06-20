@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Comment } from "../models/comment.model";
-import { AuthenticationService } from "../services/authentication.service";
-import { CommentService } from "../services/comment.service";
+import { Comment } from "../shared/models/comment.model";
+import { AuthenticationService } from "../shared/services/authentication.service";
+import { CommentService } from "../shared/services/comment.service";
 
 @Component({
     selector: "comment",

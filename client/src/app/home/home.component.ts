@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 import { Router } from "@angular/router";
 
-import { User } from "../models/user.model";
-import { UserService } from "../services/user.service";
-import { AuthenticationService } from "../services/authentication.service";
+import { User } from "../shared/models/user.model";
+import { UserService } from "../shared/services/user.service";
+import { AuthenticationService } from "../shared/services/authentication.service";
 
 @Component({
     selector: 'home',

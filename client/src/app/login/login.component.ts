@@ -3,7 +3,7 @@ import { FormBuilder, Validators } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 
-import { AuthenticationService } from "../services/authentication.service";
+import { AuthenticationService } from "../shared/services/authentication.service";
 
 @Component({
     selector: "login",

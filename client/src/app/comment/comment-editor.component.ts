@@ -3,8 +3,8 @@ import { FormBuilder, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 
-import { Comment } from "../models/comment.model";
-import { CommentService } from "../services/comment.service";
+import { Comment } from "../shared/models/comment.model";
+import { CommentService } from "../shared/services/comment.service";
 
 @Component({
     selector: "comment-editor",
