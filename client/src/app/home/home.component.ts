@@ -13,14 +13,15 @@ import { AuthenticationService } from "../services/authentication.service";
 })
 
 export class HomeComponent implements OnInit {
-    constructor(private userService: UserService,
-                private router: Router,
-                private authenticationService: AuthenticationService,
-                private slimLoadingBarService: SlimLoadingBarService) {
-    }
 
     users: User [];
     isAuthenticated: any;
+
+    constructor(
+        private userService: UserService,
+        private router: Router,
+        private authenticationService: AuthenticationService,
+        private slimLoadingBarService: SlimLoadingBarService) {}
 
     ngOnInit() {
         this.slimLoadingBarService.start();

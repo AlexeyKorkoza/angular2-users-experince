@@ -14,7 +14,12 @@ import { User } from "../models/user.model";
 
 export class EditProfileComponent implements OnInit {
 
-    constructor(private userService: UserService,
+    editForm: FormGroup;
+    username: string;
+    user: User = new User();
+
+    constructor(
+        private userService: UserService,
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router: Router,
@@ -25,10 +30,6 @@ export class EditProfileComponent implements OnInit {
         })
     }
 
-    editForm: FormGroup;
-    username: string;
-    user: User = new User();
-
     ngOnInit() {
         this.username = this.route.snapshot.parent.params['username'];
         this.userService.getUserByUsername(this.username);
@@ -38,7 +39,7 @@ export class EditProfileComponent implements OnInit {
     save(value: any) {
         (<any>Object).assign(this.user, value);
         this.authenticationService.updateUser(this.user).subscribe(
-            data => {
+            () => {
                 this.router.navigate(['']);
             }
         )

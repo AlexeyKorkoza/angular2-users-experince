@@ -1,4 +1,4 @@
-import { Http, Response, Headers, RequestOptions } from "@angular/http";
+import { Http, Response, Headers } from "@angular/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/Rx";
 
@@ -10,10 +10,10 @@ import { JwtService } from "./jwt.service";
 @Injectable()
 export class UserService {
 
-    constructor(private http: Http,
+    constructor(
+        private http: Http,
         private appConfig: AppConfig,
-        private jwtService: JwtService) {
-    }
+        private jwtService: JwtService) {}
 
     create(user: User): Observable<User> {
         return this.http.post(this.appConfig.urlServer + "/user/register", user)
