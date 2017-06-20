@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
-import {Http, Response } from "@angular/http";
+import { Http, Response } from "@angular/http";
 import 'rxjs/add/operator/map';
-import {Observable} from "rxjs";
+import { Observable } from "rxjs";
 
 import { AppConfig } from "../app.config";
 import { Comment } from "../models/comment.model";
@@ -9,7 +9,9 @@ import { Comment } from "../models/comment.model";
 @Injectable()
 export class CommentService {
 
-    constructor(private http: Http, private appConfig: AppConfig) { }
+    constructor(
+        private http: Http,
+        private appConfig: AppConfig) {}
 
     getComments() {
         return this.http.get(this.appConfig.urlServer + "/comment")
