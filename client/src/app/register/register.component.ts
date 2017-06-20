@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { UserService } from "../services/user.service";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { FormBuilder, Validators } from "@angular/forms";
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 
 @Component({
@@ -45,7 +45,7 @@ export class RegisterComponent {
                 () => {
                     this.router.navigate(['/']);
                 }
-                )
+            )
         }
         this.slimLoadingBarService.complete();
     }

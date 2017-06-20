@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from "@angular/router"
 
 import { AuthenticationService } from './services/authentication.service';
-
-import { User } from './models/user.model';
 
 @Component({
     selector: 'app',
@@ -13,8 +10,7 @@ import { User } from './models/user.model';
 
 export class AppComponent implements OnInit {
 
-    constructor(private authenticationService: AuthenticationService,
-                private router: Router) { }
+    constructor(private authenticationService: AuthenticationService) { }
 
     ngOnInit() {
         this.authenticationService.checkAuth();

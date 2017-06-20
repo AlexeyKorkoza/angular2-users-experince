@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NgModel } from '@angular/forms';
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 
 import { Comment } from "../models/comment.model";
@@ -12,13 +11,15 @@ import { CommentService } from "../services/comment.service";
 })
 
 export class SearchCommentsComponent implements OnInit {
-    constructor(private commentService: CommentService,
-                private slimLoadingBarService: SlimLoadingBarService) { }
 
     comments: Comment[];
     comment: Comment = new Comment();
     message: string = "";
     authors: any;
+
+    constructor(
+        private commentService: CommentService,
+        private slimLoadingBarService: SlimLoadingBarService) {}
 
     ngOnInit() {
         this.commentService.getAuthors().subscribe(

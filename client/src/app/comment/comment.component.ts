@@ -1,10 +1,9 @@
-import {Component, Input, OnInit} from "@angular/core";
-import {ActivatedRoute, Router} from '@angular/router';
+import { Component, Input, OnInit } from "@angular/core";
+import { ActivatedRoute, Router } from '@angular/router';
 
-import {Comment} from "../models/comment.model";
-
-import {AuthenticationService} from "../services/authentication.service";
-import {CommentService} from "../services/comment.service";
+import { Comment } from "../models/comment.model";
+import { AuthenticationService } from "../services/authentication.service";
+import { CommentService } from "../services/comment.service";
 
 @Component({
     selector: "comment",
@@ -18,13 +17,12 @@ export class CommentComponent implements OnInit {
     flag: boolean = false;
     username: string;
     isAuthenticated: any;
-    url: any;
 
-    constructor(private commentService: CommentService,
-                private authenticationService: AuthenticationService,
-                private router: Router,
-                private route: ActivatedRoute) {
-    }
+    constructor(
+        private commentService: CommentService,
+        private authenticationService: AuthenticationService,
+        private router: Router,
+        private route: ActivatedRoute) {}
 
     ngOnInit() {
         this.username = this.route.snapshot.params['username'];

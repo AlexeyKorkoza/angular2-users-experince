@@ -1,9 +1,9 @@
-import {OnInit, Component} from "@angular/core";
-import {FormBuilder, Validators} from "@angular/forms";
-import {Router, ActivatedRoute} from "@angular/router";
-import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
+import { OnInit, Component } from "@angular/core";
+import { FormBuilder, Validators } from "@angular/forms";
+import { Router, ActivatedRoute } from "@angular/router";
+import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 
-import {AuthenticationService} from "../services/authentication.service";
+import { AuthenticationService } from "../services/authentication.service";
 
 @Component({
     selector: "login",
@@ -16,11 +16,12 @@ export class LoginComponent implements OnInit {
     returnUrl: string;
     message: string = "";
 
-    constructor(private authenticationService: AuthenticationService,
-                private formBuilder: FormBuilder,
-                private router: Router,
-                private route: ActivatedRoute,
-                private slimLoadingBarService: SlimLoadingBarService) {
+    constructor(
+        private authenticationService: AuthenticationService,
+        private formBuilder: FormBuilder,
+        private router: Router,
+        private route: ActivatedRoute,
+        private slimLoadingBarService: SlimLoadingBarService) {
         this.loginForm = formBuilder.group({
             "username": [null, Validators.required],
             "password": [null, Validators.required]

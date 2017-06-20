@@ -1,10 +1,10 @@
-import {OnInit, Component} from "@angular/core";
-import {FormBuilder, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
+import { OnInit, Component } from "@angular/core";
+import { FormBuilder, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 
-import {Comment} from "../models/comment.model";
-import {CommentService} from "../services/comment.service";
+import { Comment } from "../models/comment.model";
+import { CommentService } from "../services/comment.service";
 
 @Component({
     selector: "comment-editor",
@@ -20,10 +20,11 @@ export class CommentEditorComponent implements OnInit {
     textButton: string;
     comment: Comment = new Comment();
 
-    constructor(private commentService: CommentService,
-                private formBuilder: FormBuilder,
-                private router: Router,
-                private slimLoadingBarService: SlimLoadingBarService) {
+    constructor(
+        private commentService: CommentService,
+        private formBuilder: FormBuilder,
+        private router: Router,
+        private slimLoadingBarService: SlimLoadingBarService) {
         this.editorForm = formBuilder.group({
             "title": [null, Validators.required],
             "text": [null, Validators.required]

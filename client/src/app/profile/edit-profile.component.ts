@@ -14,7 +14,12 @@ import { User } from "../models/user.model";
 
 export class EditProfileComponent implements OnInit {
 
-    constructor(private userService: UserService,
+    editForm: FormGroup;
+    username: string;
+    user: User = new User();
+
+    constructor(
+        private userService: UserService,
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router: Router,
@@ -24,10 +29,6 @@ export class EditProfileComponent implements OnInit {
              'password': ''
         })
     }
-
-    editForm: FormGroup;
-    username: string;
-    user: User = new User();
 
     ngOnInit() {
         this.username = this.route.snapshot.parent.params['username'];
