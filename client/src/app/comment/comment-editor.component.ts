@@ -9,7 +9,7 @@ import { CommentService } from "../shared/services/comment.service";
 @Component({
     selector: "comment-editor",
     templateUrl: "./comment-editor.component.html",
-    styleUrls: ["./comment-editor.component.css"]
+    styleUrls: ["./comment-editor.component.scss"]
 })
 
 export class CommentEditorComponent implements OnInit {

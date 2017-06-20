@@ -7,7 +7,7 @@ import { CommentService } from "../shared/services/comment.service";
 @Component({
     selector: 'search-component',
     templateUrl: './search-comments.component.html',
-    styleUrls: ['./search-comments.component.css']
+    styleUrls: ['./search-comments.component.scss']
 })
 
 export class SearchCommentsComponent implements OnInit {
