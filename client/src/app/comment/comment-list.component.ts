@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { CommentService } from "../services/comment.service";
-import { Comment } from "../models/comment.model";
+import { CommentService } from "../shared/services/comment.service";
+import { Comment } from "../shared/models/comment.model";
 
 @Component({
     selector: "comment-list",

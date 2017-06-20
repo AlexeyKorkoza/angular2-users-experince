@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 
-import { UserService } from "../services/user.service";
-import { AuthenticationService } from "../services/authentication.service";
+import { UserService } from "../shared/services/user.service";
+import { AuthenticationService } from "../shared/services/authentication.service";
 
-import { User } from "../models/user.model";
+import { User } from "../shared/models/user.model";
 
 @Component({
     selector: 'edit-profile',

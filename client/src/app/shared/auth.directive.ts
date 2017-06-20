@@ -7,7 +7,7 @@ import {
 
 import { Subscription } from 'rxjs/Subscription';
 
-import { AuthenticationService } from '../services/authentication.service';
+import { AuthenticationService } from './services/authentication.service';
 declare var $: any;
 
 @Directive({ 
