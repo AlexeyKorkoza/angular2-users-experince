@@ -5,9 +5,8 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 
 @Component({
-    moduleId: module.id,
     selector: "register",
-    templateUrl: "register.component.html"
+    templateUrl: "./register.component.html"
 })
 
 export class RegisterComponent {

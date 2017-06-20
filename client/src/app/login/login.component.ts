@@ -6,9 +6,8 @@ import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
 import {AuthenticationService} from "../services/authentication.service";
 
 @Component({
-    moduleId: module.id,
     selector: "login",
-    templateUrl: "login.component.html"
+    templateUrl: "./login.component.html"
 })
 
 export class LoginComponent implements OnInit {

@@ -5,10 +5,9 @@ import { AuthenticationService } from '../services/authentication.service';
 import { User } from '../models/user.model';
 
 @Component({
-    moduleId: module.id,
     selector: 'header-layout',
-    templateUrl: 'header.component.html',
-    styleUrls: ["header.component.css"]
+    templateUrl: './header.component.html',
+    styleUrls: ["./header.component.css"]
 })
 
 export class HeaderComponent implements OnInit {
