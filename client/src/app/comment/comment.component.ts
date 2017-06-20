@@ -30,7 +30,7 @@ export class CommentComponent implements OnInit {
             this.flag = true;
         }
         this.authenticationService.isAuthenticated.subscribe(
-            (authenticated) => {
+            authenticated => {
                 this.isAuthenticated = authenticated;
             }
         )

@@ -39,7 +39,7 @@ export class CommentEditorComponent implements OnInit {
             this.textButton = "Update";
             let id = this.url[this.url.length - 1];
             this.commentService.getCommentById(id).subscribe(
-                (data) => {
+                data => {
                     (<any>Object).assign(this.comment, data.comment);
                     this.editorForm.patchValue(this.comment);
                 }

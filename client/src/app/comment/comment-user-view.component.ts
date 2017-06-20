@@ -25,7 +25,7 @@ export class CommentUserViewComponent implements OnInit {
         const parentActivatedRoute = this.route.parent;
         this.username = parentActivatedRoute.snapshot.params['username'];
         this.commentService.getCommentByUsername(this.username).subscribe(
-            (data) => {
+            data => {
                 this.slimLoadingBarService.complete();
                 this.comments = data.comments;
             })

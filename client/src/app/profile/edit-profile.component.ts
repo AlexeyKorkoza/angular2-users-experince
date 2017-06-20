@@ -39,7 +39,7 @@ export class EditProfileComponent implements OnInit {
     save(value: any) {
         (<any>Object).assign(this.user, value);
         this.authenticationService.updateUser(this.user).subscribe(
-            data => {
+            () => {
                 this.router.navigate(['']);
             }
         )

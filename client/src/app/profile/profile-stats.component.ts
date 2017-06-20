@@ -24,12 +24,12 @@ export class ProfileStatsComponent implements OnInit {
     ngOnInit() {
         let username = this.route.snapshot.parent.params['username'];
         this.userService.getUserByUsername(username).subscribe(
-            (data) => {
+            data => {
                 (<any>Object).assign(this.user, data.user);
             }
         );
         this.authenticationService.currentUser.subscribe(
-            (data) => {
+            data => {
                 if (data.username == username) {
                     this.flag = true;
                     this.userNameProfile = data.username;
@@ -37,7 +37,7 @@ export class ProfileStatsComponent implements OnInit {
             }
         );
         this.userService.getUserStats(username).subscribe(
-            (data) => {
+            data => {
                 this.user = data.user;
             }
         )

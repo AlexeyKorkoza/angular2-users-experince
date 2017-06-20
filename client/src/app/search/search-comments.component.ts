@@ -36,7 +36,7 @@ export class SearchCommentsComponent implements OnInit {
             this.comments.splice(0, this.comments.length);
         }
         this.commentService.search(this.comment).subscribe(
-            (data) => {
+            data => {
                 this.slimLoadingBarService.complete();
                 if (data.comments) {
                     this.comments = data.comments;
