@@ -1,12 +1,15 @@
 # debug
 npm-debug-log
 debug.log
-src/npm-debug-log
-src/debug.log
+client/npm-debug-log
+client/debug.log
+server/npm-debug-log
+server/debug.log
 
 # dependencies
 node_modules/
-src/node_modules/
+client/node_modules/
+server/node_modules/
 
 # IDEs and editors
 .idea/
